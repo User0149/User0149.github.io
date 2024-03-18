@@ -1,111 +1,113 @@
-@media (prefers-color-scheme: dark) {
-    * {
-        --theme-bg-primary: rgb(27, 27, 27);
-        --theme-bg-secondary: rgb(129, 129, 129);
-        --theme-bg-neutral: rgb(88, 88, 88);
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
-        --theme-text-primary: rgb(255,255,255);
-    }
+@media (prefers-color-scheme: dark) {
+  * {
+    --theme-bg-primary: rgb(27, 27, 27);
+    --theme-bg-secondary: rgb(129, 129, 129);
+    --theme-bg-neutral: rgb(88, 88, 88);
+
+    --theme-text-primary: rgb(255, 255, 255);
+  }
 }
 
 @media (prefers-color-scheme: light) {
-    * {
-        --theme-bg-primary: rgb(255,255,255);
-        --theme-bg-secondary: rgb(205,205,205);
-        --theme-bg-neutral: rgb(249,248,251);
+  * {
+    --theme-bg-primary: rgb(255, 255, 255);
+    --theme-bg-secondary: rgb(205, 205, 205);
+    --theme-bg-neutral: rgb(249, 248, 251);
 
-        --theme-text-primary: rgb(78,78,78);
-    }
+    --theme-text-primary: rgb(78, 78, 78);
+  }
 }
 
 .theme-dark {
-    --theme-bg-primary: grey;
-    --theme-bg-secondary: rgb(210, 210, 210);
-    --theme-bg-neutral: rgb(88, 88, 88);
+  --theme-bg-primary: grey;
+  --theme-bg-secondary: rgb(210, 210, 210);
+  --theme-bg-neutral: rgb(88, 88, 88);
 }
 .theme-light {
-    --theme-bg-primary: white;
-    --theme-bg-secondary: black;
-    --theme-bg-neutral: grey;
+  --theme-bg-primary: white;
+  --theme-bg-secondary: black;
+  --theme-bg-neutral: grey;
 }
 * {
-    color: var(--theme-text-primary);
+  color: var(--theme-text-primary);
 }
 
-body{
-    text-align: center;
-    /* margin: auto; */ /* We have floats*/
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: var(--theme-bg-primary);
+body {
+  text-align: center;
+  /* margin: auto; */ /* We have floats*/
+  font-size: 16px;
+  font-family: "Roboto Mono", monospace;
+  background-color: var(--theme-bg-primary);
 }
 
-#question_box{
-    display: block;
-    /* border: 1px solid var(--theme-secondary); */
-    float: left;
-    padding: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    overflow: auto;
+#question_box {
+  display: block;
+  /* border: 1px solid var(--theme-secondary); */
+  float: left;
+  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  overflow: auto;
 }
 
-#info{
-    display: block;
-    border-left: 1px solid var(--theme-bg-secondary);
-    float: right;
+#info {
+  display: block;
+  border-left: 1px solid var(--theme-bg-secondary);
+  float: right;
 
-    font-size: large;
+  font-size: large;
 }
 
-#high_score,#avg_score{
-    font-size: larger;
+#high_score,
+#avg_score {
+  font-size: larger;
 }
 
-#prompt{
-    margin: 0px;
-    font-weight: bold;
-    font-size: xx-large;
+#prompt {
+  margin: 0px;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
-#sigfigs{
-    display: none;
+#sigfigs {
+  display: none;
 }
 
-#equation{
-    margin: 0px;
-    font-weight: bold;
-    font-size: xx-large;
+#equation {
+  margin: 0px;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
+#input {
+  width: 85%;
+  height: 30px;
+  background-color: var(--theme-bg-neutral);
 
-#input{
-    width: 85%;
-    height: 30px;
-    background-color: var(--theme-bg-neutral);
-
-    /* text-align: center;  */
-    margin: 20px;
-    padding: 10px;
+  /* text-align: center;  */
+  margin: 20px;
+  padding: 10px;
 }
 
-#score{
-    width: 87%;
-    /* height: 100px; */
-    margin: auto;
-    padding: 5px;
-    text-align: center;
-    background-color: green;
+#score {
+  width: 87%;
+  /* height: 100px; */
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  background-color: green;
 
-    cursor: pointer;
+  cursor: pointer;
 }
-#delete_score{
-    width: 87%;
-    /* height: 100px; */
-    margin: auto;
-    padding: 5px;
-    text-align: center;
+#delete_score {
+  width: 87%;
+  /* height: 100px; */
+  margin: auto;
+  padding: 5px;
+  text-align: center;
 
-    cursor: pointer;
-    background-color: red;
+  cursor: pointer;
+  background-color: red;
 }
