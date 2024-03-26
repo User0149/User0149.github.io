@@ -1,48 +1,13 @@
-@media (prefers-color-scheme: dark) {
-    * {
-        --theme-bg-primary: rgb(27, 27, 27);
-        --theme-bg-secondary: rgb(129, 129, 129);
-        --theme-bg-neutral: rgb(88, 88, 88);
-
-        --theme-text-primary: rgb(255,255,255);
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    * {
-        --theme-bg-primary: rgb(255,255,255);
-        --theme-bg-secondary: rgb(205,205,205);
-        --theme-bg-neutral: rgb(249,248,251);
-
-        --theme-text-primary: rgb(78,78,78);
-    }
-}
-
-.theme-dark {
-    --theme-bg-primary: grey;
-    --theme-bg-secondary: rgb(210, 210, 210);
-    --theme-bg-neutral: rgb(88, 88, 88);
-}
-.theme-light {
-    --theme-bg-primary: white;
-    --theme-bg-secondary: black;
-    --theme-bg-neutral: grey;
-}
-* {
-    color: var(--theme-text-primary);
-}
-
 body{
     text-align: center;
     /* margin: auto; */ /* We have floats*/
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
-    background-color: var(--theme-bg-primary);
 }
 
 #question_box{
     display: block;
-    /* border: 1px solid var(--theme-secondary); */
+    /* border: 1px solid black; */
     float: left;
     padding: 10px;
     margin-top: 0px;
@@ -52,7 +17,7 @@ body{
 
 #info{
     display: block;
-    border-left: 1px solid var(--theme-bg-secondary);
+    border-left: 1px solid black;
     float: right;
 
     font-size: large;
@@ -82,7 +47,6 @@ body{
 #input{
     width: 85%;
     height: 30px;
-    background-color: var(--theme-bg-neutral);
 
     /* text-align: center;  */
     margin: 20px;
