@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CAS Practice</title>
+    <link rel="stylesheet" href="style.css"></link>
+</head>
+<body>
+    <div id="question_box">
+        <p id="prompt"></p>
+        <p id="sigfigs">Give your answer accurate to 2 decimal places.</p>
+        
+        <br>
+        <p id="equation"></p>
+        <input id='input' placeholder="Input your answer here." onchange='display_time=1;'>
+        
+        <br>
+        <div id='score' onclick='do_save=1; go_to_next=1;'>
+            <p><b style='font-size: larger'>Your Time:
+                <br>
+                <span id='time'>0.00</span> s
+                <br>
+                </b>
+
+                <br>
+                Click here to save this time and continue.
+            </p>
+        </div>
+        <br>
+        <div id='delete_score' onclick='go_to_next=1;'>
+            <p>Click here to delete this time.</p>
+        </div>
+    </div>
+    <div id="info">
+        <div style="text-align: center;">
+            <p>Best time this week: <br><span id="high_score">0.00</span> s</p>
+            <p>Average time this week: <br><span id="avg_score">0.00</span> s</p>
+        </div>
+    </div>
+    
+    <script>
+        MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+            fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script"
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

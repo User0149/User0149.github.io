@@ -1,0 +1,75 @@
+body{
+    text-align: center;
+    /* margin: auto; */ /* We have floats*/
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#question_box{
+    display: block;
+    /* border: 1px solid black; */
+    float: left;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    overflow: auto;
+}
+
+#info{
+    display: block;
+    border-left: 1px solid black;
+    float: right;
+
+    font-size: large;
+}
+
+#high_score,#avg_score{
+    font-size: larger;
+}
+
+#prompt{
+    margin: 0px;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#sigfigs{
+    display: none;
+}
+
+#equation{
+    margin: 0px;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+
+#input{
+    width: 85%;
+    height: 30px;
+
+    /* text-align: center;  */
+    margin: 20px;
+    padding: 10px;
+}
+
+#score{
+    width: 87%;
+    /* height: 100px; */
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+    background-color: green;
+
+    cursor: pointer;
+}
+#delete_score{
+    width: 87%;
+    /* height: 100px; */
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+
+    cursor: pointer;
+    background-color: red;
+}
