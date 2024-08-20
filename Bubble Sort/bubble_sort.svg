@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN" "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd"> 
+
+<svg id='svg_elem' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style='margin: auto'>
+<rect id='border' stroke='black' fill='white'/>
+
+<text id='title' style='font-size: x-large; margin: auto; text-anchor: middle;'>Bubble Sort</text>
+
+<g id='blocks'/>
+
+<line id='separator' stroke='black'/>
+
+<path id='interval' stroke='red' d='M-37 5 v10 h74 v-10' fill='none'/> <!-- centre is 5 px above middle top-->
+
+<script href='script.js'/>
+</svg>
