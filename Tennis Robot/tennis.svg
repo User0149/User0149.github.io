@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20001102//EN' 'http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd'>
+<svg id='svg_elem' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' transform='translate(30 30)'>
+    <image href='img1.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='0s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img2.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='0.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img3.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='1s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img4.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='1.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img1.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='2s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img2.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='2.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img3.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='3s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img4.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='3.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img1.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='4s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img2.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='4.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img3.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img4.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='5.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img1.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='6s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img2.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='6.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img3.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='7s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+    <image href='img4.png' width='500' height='500' opacity='0'>
+        <animate fill='freeze' begin='7.5s' dur='0.5s' attributeName='opacity' to='1'/>
+    </image>
+</svg>
