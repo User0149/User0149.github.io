@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20001102//EN' 'http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd'>
+<svg id='svg_elem' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' transform='translate(30 30)'>
+<rect id='border' stroke='black' fill='white'/>
+
+<g id='max_elem'>
+<text font-size='large' fill='green' x='30' y='20' text-anchor='middle'>max</text>
+<line id='sep' x1='30' x2='30' y1='30' stroke='green'/>
+</g>
+
+<script href='script.js'/>
+</svg>
