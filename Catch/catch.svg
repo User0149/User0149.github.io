@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20001102//EN' 'http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd'>
+<svg id='svg_elem' width='500' height='500' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' transform='translate(30 30)'>
+    <defs>
+        <image id='rickroll' href='rickroll.png' width='30' height='30'/>
+    </defs>
+
+    <rect id='border' width='500' height='500' stroke='black' fill='white'/>
+
+    <script href='script.js'/>
+</svg>
