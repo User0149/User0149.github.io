@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN" 
+ "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd"> 
+
+<svg id='svg_elem' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" transform="translate(20,20)" margin='auto'>
+    <defs>
+        <path id='arrow' opacity='1' d='M-5 50 h10 v-30 h10 l-15 -10 l-15 10 h10 v30 Z' stroke='black'></path> <!-- centre is defined as the 10 px above the point -->
+    </defs>
+
+    <rect id='border' stroke='black' fill='white'/>
+<script href='script.js'/>
+</svg>
