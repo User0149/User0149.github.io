@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20001102//EN' 'http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd'>
+<svg id='svg_elem' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' transform='translate(20 20)' height='750'>
+    <rect id='border' stroke='black' fill='white' height='750'/>
+
+    <line id='l1' stroke='black' x1='0' y1='250' y2='250'/>
+    <line id='l2' stroke='black' x1='0' y1='500' y2='500'/>
+    <script href='script.js'/>
+</svg>
