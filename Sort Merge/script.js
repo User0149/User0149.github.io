@@ -77,7 +77,7 @@ while(a_next<=n){
 
     taken++;
 }
-while(b_next<=n){
+while(b_next<=m){
     document.getElementById(`b${b_next}`).innerHTML+=`<animateTransform fill='freeze' attributeName='transform' type='translate' to='${30+taken*60} 750' begin='${t}s' dur='1s'/>`;
     document.getElementById(`rect_b${b_next}`).innerHTML+=`<animate fill='freeze' attributeName='fill' to='blue' begin='${t}s' dur='0.5s'/>`;
 
