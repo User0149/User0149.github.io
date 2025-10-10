@@ -45,7 +45,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
     const estimated_string = (estimated_departure_utc ? (estimated_departure_utc.getTime() === scheduled_departure_utc.getTime() ? scheduled_string : estimated_departure_utc.toLocaleTimeString("fr-FR")) : scheduled_string);
 
     return (
-        <div className="width100 departureBox flex">
+        <div className="width100 departure_box flex">
             <div style={{width: "calc(100% - 100px)", marginLeft: "10px"}}>
                 <div className="flex">
                     <p className="margin-top-10px">
@@ -56,7 +56,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
                     </p>
                 </div>
 
-                <div className="smallRouteButton" style={{border: `1.5px solid ${["#008cce","#71be46","#ff8200","#7d4296","#ff8200"][route_type]}`, fontSize: "0.9em"}}>
+                <div className="small_route_button" style={{border: `1.5px solid ${["#008cce","#71be46","#ff8200","#7d4296","#ff8200"][route_type]}`, fontSize: "0.9em"}}>
                     {(route_number ? route_number : route_name)}
                 </div>
                 
@@ -64,7 +64,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
                     {platform_number ? `Platform ${platform_number}` : ""}
                 </div>
             </div>
-            <div className="flex-float-right flexCenter">
+            <div className="flex-float-right flex-center">
                 <div>
                     {
                         (estimated_string !== scheduled_string ?
@@ -73,7 +73,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
                             null
                         )
                     }
-                    <p className="estimatedButton" style={{marginTop: "0px", backgroundColor: `${(estimated_string === scheduled_string ? "#ffffa8" : "#aaffaa")}`}}>
+                    <p className="estimated_button" style={{marginTop: "0px", backgroundColor: `${(estimated_string === scheduled_string ? "#ffffa8" : "#aaffaa")}`}}>
                         {estimated_string ? estimated_string : scheduled_string}
                     </p>
                 </div>
@@ -145,7 +145,7 @@ function DeparturesListElem({selectedStop}){
 
 export default function NextDeparturesElem({selectedStop}) {
     return (
-        <div className="borderRight width25 height100">
+        <div className="border-right width25 height100">
             <div className="background-grey font-x-large text-align-center padding15px font-large">Next Departures</div>
             <DeparturesListElem selectedStop={selectedStop}/>
         </div>

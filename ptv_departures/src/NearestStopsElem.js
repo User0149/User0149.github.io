@@ -17,12 +17,12 @@ async function NearestStops() {
 
 function StopItem({selectedStop, setSelectedStop, stop}){
     return (
-        <div className="width100 stopBox flex" key={[stop.stop_id.toString(),stop.route_type.toString()].toString()} style={(stop === selectedStop ? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
+        <div className="width100 stop_box flex" key={[stop.stop_id.toString(),stop.route_type.toString()].toString()} style={(stop === selectedStop ? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
             <img src={`route_type_${stop.route_type.toString()}.svg`} alt={`route_type_${stop.route_type.toString()}.svg`} width="40px" style={{padding: "15px"}}/>
 
             <div className="width100 height100" style={{fontSize: "0.9em"}}>
                 <div className="flex width100" style={{height: "50px"}}>
-                    <p className="margin-top-10px" style={{width: "calc(100% - 55px)"}}><b>{stop.stop_name}</b></p>
+                    <p className="margin-top-10px bold" style={{width: "calc(100% - 55px)"}}>{stop.stop_name}</p>
                     <p className="margin-top-10px" style={{marginLeft: "auto", marginRight: "10px"}}>{Math.round(stop.stop_distance)} m</p>
                 </div>
                 
@@ -32,7 +32,7 @@ function StopItem({selectedStop, setSelectedStop, stop}){
                             stop.routes.map(route => {
                                 const colour=["#008cce","#71be46","#ff8200","#7d4296","#ff8200"];
                                 return (
-                                    <span key={`${[stop.stop_id.toString(), route.route_name.toString()].toString()}`} className="smallRouteButton" style={{border: `1.5px solid ${colour[route.route_type]}`}}>
+                                    <span key={`${[stop.stop_id.toString(), route.route_name.toString()].toString()}`} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`}}>
                                         {(route.route_number ? route.route_number : route.route_name)}
                                     </span>
                                 );
@@ -63,7 +63,7 @@ function StopsListElem({selectedStop, setSelectedStop}){
 
     if (stopsList == null) {
         return (
-            <div className="clickable StopBox padding15px" onClick={getLocation}>
+            <div className="clickable stop_box padding15px" onClick={getLocation}>
                 <p className="text-align-center font-x-large">Click here to enable location permissions.</p>
             </div>
         );
@@ -87,7 +87,7 @@ function StopsListElem({selectedStop, setSelectedStop}){
 
 export default function NearestStopsElem({selectedStop, setSelectedStop}) {
     return (
-        <div className="borderRight width25 height100">
+        <div className="border-right width25 height100">
             <div className="background-grey font-x-large text-align-center padding15px font-large">Stops within 1000 metres</div>
             <StopsListElem selectedStop={selectedStop} setSelectedStop={setSelectedStop}/>
         </div>

@@ -7,10 +7,10 @@ body{
 .border{
     border: 1px solid grey;
 }
-.borderBottom{
+.border-bottom{
     border-bottom: 1px solid grey;
 }
-.borderRight{
+.border-right{
     border-right: 1px solid grey;
 }
 
@@ -40,19 +40,19 @@ body{
     width: 50%;
 }
 
-.stopBox:hover{
+.stop_box:hover{
     background-color: #d5d5d5;
     cursor: pointer;
 }
-.stopBox{
+.stop_box{
     height: 120px;
     border-bottom: 1px solid grey;
 }
-.departureBox{
+.departure_box{
     height: 120px;
     border-bottom: 1px solid grey;
 }
-.departureBox:hover{
+.departure_box:hover{
     background-color: #d5d5d5;
 }
 
@@ -73,12 +73,12 @@ body{
     margin: auto;
 }
 
-.flexCenter{
+.flex-center{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.flexSpace{
+.flex-space{
     display: flex;
     justify-content: space-between;
 }
@@ -111,7 +111,7 @@ body{
     border-radius: 50vh;
 }
 
-.smallRouteButton{
+.small_route_button{
     display: inline-block;
     border-radius: 50vh;
     text-align: center;
@@ -135,7 +135,7 @@ body{
 .font-grey{
     color: grey;
 }
-.estimatedButton{
+.estimated_button{
     border: 1px solid black;
     border-radius: 50vh;
     text-align: center;
@@ -153,4 +153,20 @@ body{
 .top-bar{
     background-color: black;
     height: 30px;
+}
+.white-text{
+    color: white;
+}
+.position-absolute{
+    position: absolute;
+}
+.position-relative{
+    position: relative;
+}
+.bold{
+    font-weight: bold;
+}
+#settings_box:hover{
+    background-color: gray;
+    cursor: pointer;
 }

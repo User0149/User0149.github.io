@@ -1,9 +1,10 @@
 import './App.css';
 import {useState} from 'react';
 
-import NearestStopsElem from './nearest_stops.js'
-import NextDeparturesElem from './next_departures.js'
-import MapElem from './map.js';
+import NearestStopsElem from './NearestStopsElem.js'
+import NextDeparturesElem from './NextDeparturesElem.js'
+import MapElem from './MapElem.js';
+import TopBar from './TopBar.js';
 
 
 function App() {
@@ -11,9 +12,7 @@ function App() {
 
     return (
         <>
-            <div className="top-bar">
-
-            </div>
+            <TopBar/>
             <div className="flex" style={{height: "calc(100vh - 30px)"}}>
                 <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop}/>
                 <NextDeparturesElem selectedStop={selectedStop}/>
