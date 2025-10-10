@@ -51,7 +51,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
                     <p className="margin-top-10px">
                         {scheduled_string.slice(0,5)}
                     </p>
-                    <p className="flex-float-right margin-top-10px" style={{width: "200px"}}>
+                    <p className="flex-float-right margin-top-10px" style={{width: "200px", marginLeft: "25px"}}>
                         towards {direction_name}
                     </p>
                 </div>
