@@ -90,17 +90,13 @@ function DeparturesListElem({selectedStop}){
         (async () => {
             const departuresList = await NextDepartures(selectedStop);
             if (departuresList) {
-                let relevant_departures = [];
-                
-                for (const departure of departuresList) {
+                setDepartures(departuresList.filter(departure => {
                     const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
                     const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
 
-                    if (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date())) {
-                        relevant_departures.push(departure);
-                    }
+                    return (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date()));
                 }
-                setDepartures(relevant_departures);
+                ));
             }
         })();
     }, [selectedStop]);
