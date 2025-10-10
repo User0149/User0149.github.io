@@ -67,13 +67,13 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
             <div className="flex-float-right flexCenter">
                 <div>
                     {
-                        (estimated_string != scheduled_string ?
+                        (estimated_string !== scheduled_string ?
                             <p className="text-align-center" style={{color: "gray", fontSize: "small", marginBottom: "2px"}}>live</p>
                             :
                             null
                         )
                     }
-                    <p className="estimatedButton" style={{marginTop: "0px", backgroundColor: `${(estimated_string == scheduled_string ? "#ffffa8" : "#aaffaa")}`}}>
+                    <p className="estimatedButton" style={{marginTop: "0px", backgroundColor: `${(estimated_string === scheduled_string ? "#ffffa8" : "#aaffaa")}`}}>
                         {estimated_string ? estimated_string : scheduled_string}
                     </p>
                 </div>
