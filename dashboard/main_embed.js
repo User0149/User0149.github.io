@@ -9,7 +9,6 @@ Projectile Motion,
 Electric Field
 SQRT Decomp,
 Bounce,
-Sentence Generator, 
 Binomial Distribution, 
 Power Mean Inequality, 
 Bowtie Theorem, 
