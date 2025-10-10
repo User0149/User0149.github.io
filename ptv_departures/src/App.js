@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+
+import NearestStopsElem from './nearest_stops.js'
+import NextDeparturesElem from './next_departures.js'
+import MapElem from './map.js';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.og"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [selectedStop, setSelectedStop] = useState(null);
+
+    return (
+        <div className="flex height100vh">
+            <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop}/>
+            <NextDeparturesElem selectedStop={selectedStop}/>
+            <MapElem/>
+        </div>
+    );
 }
 
 export default App;

@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+body{
+    overflow: hidden;
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+.border{
+    border: 1px solid grey;
+}
+.borderBottom{
+    border-bottom: 1px solid grey;
+}
+.borderRight{
+    border-right: 1px solid grey;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flex{
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.height100vh{
+    height: 100vh;
+}
+.height100{
+    height: 100%;
+}
+.height25{
+    height: 25%;
+}
+.width100{
+    width: 100%;
+}
+.width75{
+    width: 75%;
+}
+.width25{
+    width: 25%;
+}
+.width45{
+    width: 50%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.stopBox:hover{
+    background-color: #d5d5d5;
+    cursor: pointer;
+}
+.stopBox{
+    height: 120px;
+    border-bottom: 1px solid grey;
+}
+.departureBox{
+    height: 120px;
+    border-bottom: 1px solid grey;
+}
+.departureBox:hover{
+    background-color: #d5d5d5;
 }
 
-.App-link {
-  color: #61dafb;
+.clickable:hover{
+    cursor: pointer;
+}
+.overflow{
+    overflow: auto;
+}
+.overflow::-webkit-scrollbar{
+    display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-align-center{
+    text-align: center;
+}
+.center{
+    margin: auto;
+}
+
+.flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexSpace{
+    display: flex;
+    justify-content: space-between;
+}
+.font-x-large{
+    font-size: x-large;
+}
+.font-large{
+    font-size: large;
+}
+
+.float-right{
+    float: right;
+}
+.red{
+    background-color: red;
+}
+
+.background-grey{
+    background-color: #45484a;
+    color: white;
+}
+.padding15px{
+    padding: 15px;
+}
+.padding10px{
+    padding: 10px;
+}
+
+.rounded_h{
+    border-radius: 50vh;
+}
+
+.smallRouteButton{
+    display: inline-block;
+    border-radius: 50vh;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.margin-top-10px{
+    margin-top: 10px;
+}
+.inline-block{
+    display: inline-block;
+}
+.margin-right-0{
+    margin-right: 0px;
+}
+.font-grey{
+    color: grey;
+}
+.estimatedButton{
+    border: 1px solid black;
+    border-radius: 50vh;
+    text-align: center;
+    font-size: large;
+
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.flex-float-right{
+    margin-left: auto;
+    margin-right: 10px;
 }
