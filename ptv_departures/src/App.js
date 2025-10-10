@@ -10,11 +10,16 @@ function App() {
     const [selectedStop, setSelectedStop] = useState(null);
 
     return (
-        <div className="flex height100vh">
-            <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop}/>
-            <NextDeparturesElem selectedStop={selectedStop}/>
-            <MapElem/>
-        </div>
+        <>
+            <div className="top-bar">
+
+            </div>
+            <div className="flex" style={{height: "calc(100vh - 30px)"}}>
+                <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop}/>
+                <NextDeparturesElem selectedStop={selectedStop}/>
+                <MapElem/>
+            </div>
+        </>
     );
 }
 
