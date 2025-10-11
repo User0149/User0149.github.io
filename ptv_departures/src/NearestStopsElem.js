@@ -8,8 +8,8 @@ async function NearestStops() {
 
     let lat = pos.coords.latitude.toString();
     let long = pos.coords.longitude.toString();
-    lat = -37.818078;
-    long = 144.96681;
+    // lat = -37.818078;
+    // long = 144.96681;
 
     const ret = await APIQuery(`/v3/stops/location/${lat},${long}?max_distance=1000`);
     return ret;
@@ -46,20 +46,7 @@ function StopItem({selectedStop, setSelectedStop, stop}){
     );
 }
 
-function StopsListElem({selectedStop, setSelectedStop, devID, devKey}){
-    let [stopsList, setStopsList] = useState(null); 
-
-    const getLocation = async () => {
-        let API_ret = await NearestStops();
-        if (!API_ret) {
-            alert("Something went wrong.");
-        }
-
-        setStopsList(API_ret.stops);
-        if (API_ret.stops.length >= 1) {
-            setSelectedStop(API_ret.stops[0]);
-        }
-    };
+function StopsListElem({stopsList, selectedStop, setSelectedStop, devID, devKey}){
 
     if (devID == null || devID === "" || devKey == null|| devKey === "") {
         return (
@@ -69,8 +56,8 @@ function StopsListElem({selectedStop, setSelectedStop, devID, devKey}){
 
     if (stopsList == null) {
         return (
-            <div className="clickable stop_box padding15px" onClick={getLocation}>
-                <p className="text-align-center font-x-large">Click here to enable location permissions.</p>
+            <div className="height100 text-align-center">
+                <p>Refresh to see nearest stops.</p>
             </div>
         );
     }
@@ -92,10 +79,30 @@ function StopsListElem({selectedStop, setSelectedStop, devID, devKey}){
 }
 
 export default function NearestStopsElem({selectedStop, setSelectedStop, devID, devKey}) {
+    let [stopsList, setStopsList] = useState(null); 
+
+    const getLocation = async () => {
+        let API_ret = await NearestStops();
+        if (!API_ret) {
+            alert("Something went wrong.");
+        }
+
+        setStopsList(API_ret.stops);
+        if (API_ret.stops.length >= 1) {
+            setSelectedStop(API_ret.stops[0]);
+        }
+    };
+
     return (
         <div className="border-right width25 height100">
-            <div className="background-grey font-x-large text-align-center padding15px font-large">Stops within 1000 metres</div>
-            <StopsListElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} devID={devID} devKey={devKey}/>
+            <div className="position-relative background-grey font-x-large text-align-center padding15px font-large">
+                <div>Stops within 1000 metres</div>
+                <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={getLocation}>
+                    <img alt="update" src="refresh.svg" width="20px" height="20px"></img>
+                </div>
+            </div>
+
+            <StopsListElem stopsList={stopsList} selectedStop={selectedStop} setSelectedStop={setSelectedStop} devID={devID} devKey={devKey}/>
         </div>
     );
 }
