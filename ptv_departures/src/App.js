@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 import NearestStopsElem from './NearestStopsElem.js'
 import NextDeparturesElem from './NextDeparturesElem.js'
@@ -11,8 +11,6 @@ function App() {
     const [selectedStop, setSelectedStop] = useState(null);
     const [devID, setDevID] = useState(localStorage.getItem("dev_id"));
     const [devKey, setDevKey] = useState(localStorage.getItem("dev_key"));
-    
-    useEffect(() => console.log(devID), [devID]);
 
     if (devID == null) {
         localStorage.setItem("dev_id", "");

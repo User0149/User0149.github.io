@@ -83,8 +83,8 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
 }
 
 function DeparturesListElem({selectedStop}){
-    let [departures, setDepartures] = useState([]);
-    let [RouteDirectionsList, setRouteDirectionsList] = useState({});
+    const [departures, setDepartures] = useState([]);
+    const [RouteDirectionsList, setRouteDirectionsList] = useState({});
     
     useEffect(() => {
         (async () => {
