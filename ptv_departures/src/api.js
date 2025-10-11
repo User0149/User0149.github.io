@@ -4,12 +4,12 @@ function hmacSHA1(message, key) {
 }
 
 export default async function APIQuery(query_string) {
-    const devid = "3003675";
-    const devkey = "6687792e-89d3-4b03-bbf7-4d4daa063610";
+    const dev_id = localStorage.getItem("dev_id");
+    const dev_key = localStorage.getItem("dev_key");
 
     const base = "https://timetableapi.ptv.vic.gov.au"
-    const request = `${query_string}${query_string.includes('?')?'&':'?'}devid=${devid}`;
-    const url = `${base}${request}&signature=${hmacSHA1(request, devkey)}`;
+    const request = `${query_string}${query_string.includes('?')?'&':'?'}devid=${dev_id}`;
+    const url = `${base}${request}&signature=${hmacSHA1(request, dev_key)}`;
     try {
         const response = await fetch(url);
         if (!response.ok) {

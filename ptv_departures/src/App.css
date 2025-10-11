@@ -146,7 +146,7 @@ body{
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.flex-float-right{
+.float-right-10{
     margin-left: auto;
     margin-right: 10px;
 }
@@ -166,7 +166,37 @@ body{
 .bold{
     font-weight: bold;
 }
-#settings_box:hover{
+#settings_icon_box:hover{
     background-color: gray;
     cursor: pointer;
+}
+.black-background{
+    background-color: black;
+}
+.position-fixed-right{
+    position: fixed;
+    right: 0px;
+}
+.font-red{
+    color: red;
+}
+
+#settings_elem{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+#settings_icon_box:hover + #settings_elem{
+    visibility: visible;
+    opacity: 1;
+}
+#settings_elem:hover{
+    opacity: 1;
+    visibility: visible;
+}
+.z-index-1{
+    z-index: 1;
+}
+.opacity-0{
+    opacity: 0;
 }

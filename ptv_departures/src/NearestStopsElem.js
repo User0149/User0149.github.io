@@ -46,7 +46,7 @@ function StopItem({selectedStop, setSelectedStop, stop}){
     );
 }
 
-function StopsListElem({selectedStop, setSelectedStop}){
+function StopsListElem({selectedStop, setSelectedStop, devID, devKey}){
     let [stopsList, setStopsList] = useState(null); 
 
     const getLocation = async () => {
@@ -60,6 +60,12 @@ function StopsListElem({selectedStop, setSelectedStop}){
             setSelectedStop(API_ret.stops[0]);
         }
     };
+
+    if (devID == null || devID === "" || devKey == null|| devKey === "") {
+        return (
+            <p className="text-align-center font-x-large font-red">Please configure your PTV developer ID and key in the settings.</p>
+        );
+    }
 
     if (stopsList == null) {
         return (
@@ -85,11 +91,11 @@ function StopsListElem({selectedStop, setSelectedStop}){
     );
 }
 
-export default function NearestStopsElem({selectedStop, setSelectedStop}) {
+export default function NearestStopsElem({selectedStop, setSelectedStop, devID, devKey}) {
     return (
         <div className="border-right width25 height100">
             <div className="background-grey font-x-large text-align-center padding15px font-large">Stops within 1000 metres</div>
-            <StopsListElem selectedStop={selectedStop} setSelectedStop={setSelectedStop}/>
+            <StopsListElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} devID={devID} devKey={devKey}/>
         </div>
     );
 }
