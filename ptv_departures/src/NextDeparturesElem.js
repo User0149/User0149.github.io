@@ -102,9 +102,7 @@ function DeparturesListElem({selectedStop, departures}){
 
     if (!selectedStop) {
         return (
-            <div className="height100 text-align-center">
-                <p>Select a stop from the menu.</p>
-            </div>
+            <></>
         );
     }
     if (departures.length === 0) {

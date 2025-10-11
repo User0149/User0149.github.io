@@ -56,9 +56,7 @@ function StopsListElem({stopsList, selectedStop, setSelectedStop, devID, devKey}
 
     if (stopsList == null) {
         return (
-            <div className="height100 text-align-center">
-                <p>Refresh to see nearest stops.</p>
-            </div>
+            <></>
         );
     }
 
@@ -92,6 +90,8 @@ export default function NearestStopsElem({selectedStop, setSelectedStop, devID, 
             setSelectedStop(API_ret.stops[0]);
         }
     };
+
+    if (selectedStop == null) getLocation();
 
     return (
         <div className="border-right width25 height100">
