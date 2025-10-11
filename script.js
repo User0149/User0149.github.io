@@ -5,6 +5,7 @@
     const sites = await response.json();
     
     for (const site of sites) {
+        if (site.type !== "dir") continue;
         let div = document.createElement('div');
 
         let link = document.createElement('a');
