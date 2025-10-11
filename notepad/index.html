@@ -1,0 +1,27 @@
+<!DOCTYPE html5>
+<html>
+<head>
+    <title>Notepad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css"></link>
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <textarea id="editor" placeholder="Type HTML/LaTeX code here." oninput="compile();"></textarea>
+    <div id="display"></div>
+</body>
+</html>
