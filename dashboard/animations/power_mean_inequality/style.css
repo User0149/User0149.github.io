@@ -1,0 +1,37 @@
+td,th{
+    border: 1px solid black;
+    padding: 0.75em;
+}
+
+body{
+    text-align: center;
+    /* margin: auto; */ /* We have floats*/
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#numbers{
+    display: block;
+    border: 1px solid black;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px;
+    overflow: auto;
+
+    width: calc(100vw - 410px);
+    height: calc(100vh - 115px);
+}
+
+#info{
+    display: block;
+    border: 1px solid black;
+    float: right;
+
+    width: 350px;
+    height: calc(100vh - 95px);
+}
+
+#means{
+    margin: auto;
+}

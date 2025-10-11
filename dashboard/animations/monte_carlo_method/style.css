@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+}
+
+td,th{
+    border: 1px solid black;
+    padding: 0.75em;
+}
+
+body{
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#canvas{
+    padding: 10px;
+}
+
+#info{
+    display: block;
+    /* border: 1px solid black; */
+    float: right;
+}
+
+#values{
+    margin: auto;
+}

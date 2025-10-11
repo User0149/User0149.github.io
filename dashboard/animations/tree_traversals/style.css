@@ -1,0 +1,10 @@
+body{
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#canvas{
+    padding: 10px;
+}

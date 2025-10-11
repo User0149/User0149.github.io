@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#box{
+    height: calc(min(100vw - 50px, 100vh - 200px));
+    width: calc(min(100vw - 50px, 100vh - 200px));
+}

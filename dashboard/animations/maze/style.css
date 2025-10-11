@@ -1,0 +1,18 @@
+table{
+    text-align: center;
+    margin: auto;
+    border: 1px solid black;
+    border-collapse:collapse;
+}
+
+td{
+    border: 2px solid black;
+    padding: 0px;
+}
+
+body{
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
