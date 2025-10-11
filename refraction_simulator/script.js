@@ -170,7 +170,7 @@ function resize(){
 
 // The function resize() draws the webpage to the window dimensions
 // The webpage is initialised with this function, and the function is called whenever the window is resized.
-// The canvas content is automatically cleared and redrawned whenever inputs are changed by the user.
+// The canvas content is automatically cleared and redrawn whenever inputs are changed by the user.
 
 resize();
 window.addEventListener("resize",resize);
