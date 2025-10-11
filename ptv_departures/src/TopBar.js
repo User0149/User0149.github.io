@@ -13,11 +13,11 @@ export default function TopBar({devID, devKey, setDevID, setDevKey}){
             <div className="top-bar flex-center white-text position-relative">
                 <div className="center">Current time: {curTime}</div>
             </div>
-            <div id="settings_elem_box" className="z-index-1 white-text position-fixed-right" style={{width: "200px", top: "0px"}}>
-                <div id="settings_icon_box" className="flex-center" style={{height: "30px", width: "25px", marginLeft: "auto", marginRight: "15px"}}>
+            <div id="settings_elem_box" className="visibility-hidden z-index-1k white-text position-fixed-right" style={{width: "200px", top: "0px"}}>
+                <div id="settings_icon_box" className="flex-center visibility-visible" style={{height: "30px", width: "25px", marginLeft: "auto", marginRight: "15px"}}>
                     <img src="settings.svg" alt="settings" height="15px"/>
                 </div>
-                <div id="settings_elem" className="z-index-1 black-background padding15px">
+                <div id="settings_elem" className="z-index-1k black-background padding15px">
                     <div>Developer ID</div>
                     <input id="dev_id_input" type="text" value={devID} onInput={() => {localStorage.setItem("dev_id", document.getElementById("dev_id_input").value); setDevID(localStorage.getItem("dev_id"))}}></input>
                     <div>Developer key</div>

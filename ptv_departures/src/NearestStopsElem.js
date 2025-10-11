@@ -8,8 +8,8 @@ async function NearestStops() {
 
     let lat = pos.coords.latitude.toString();
     let long = pos.coords.longitude.toString();
-    // lat = -37.818078;
-    // long = 144.96681;
+    // lat = -37.8377;
+    // long = 145.0;
 
     const ret = await APIQuery(`/v3/stops/location/${lat},${long}?max_distance=1000`);
     return ret;
