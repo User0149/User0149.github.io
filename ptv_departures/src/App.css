@@ -200,3 +200,8 @@ body{
 .opacity-0{
     opacity: 0;
 }
+
+#refresh_icon_box:hover{
+    background-color: gray;
+    cursor: pointer;
+}

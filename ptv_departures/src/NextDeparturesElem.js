@@ -82,24 +82,9 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
     );
 }
 
-function DeparturesListElem({selectedStop}){
-    const [departures, setDepartures] = useState([]);
+function DeparturesListElem({selectedStop, departures}){
     const [RouteDirectionsList, setRouteDirectionsList] = useState({});
-    
-    useEffect(() => {
-        (async () => {
-            const departuresList = await NextDepartures(selectedStop);
-            if (departuresList) {
-                setDepartures(departuresList.filter(departure => {
-                    const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
-                    const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
 
-                    return (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date()));
-                }
-                ));
-            }
-        })();
-    }, [selectedStop]);
     useEffect(() => {
         (async () => {
             if (!selectedStop) return;
@@ -144,10 +129,45 @@ function DeparturesListElem({selectedStop}){
 }
 
 export default function NextDeparturesElem({selectedStop}) {
+    const [departures, setDepartures] = useState([]);
+    useEffect(() => {
+        (async () => {
+            const departuresList = await NextDepartures(selectedStop);
+            if (departuresList) {
+                setDepartures(departuresList.filter(departure => {
+                    const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
+                    const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
+
+                    return (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date()));
+                }));
+            }
+        })();
+    }, [selectedStop]);
+
     return (
         <div className="border-right width25 height100">
-            <div className="background-grey font-x-large text-align-center padding15px font-large">Next Departures</div>
-            <DeparturesListElem selectedStop={selectedStop}/>
+            <div className="position-relative background-grey font-x-large text-align-center padding15px font-large">
+                <div>Next Departures</div>
+                <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={
+                    () => {
+                        (async () => {
+                            const departuresList = await NextDepartures(selectedStop);
+                            if (departuresList) {
+                                setDepartures(departuresList.filter(departure => {
+                                    const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
+                                    const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
+
+                                    return (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date()));
+                                }));
+                            }
+                        })();
+                    }
+                }>
+                    <img alt="update" src="refresh.svg" width="20px" height="20px"></img>
+                </div>
+            </div>
+            
+            <DeparturesListElem selectedStop={selectedStop} departures={departures}/>
         </div>
     );
 }
