@@ -70,7 +70,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
                         (estimated_string !== scheduled_string ?
                             <p className="text-align-center" style={{color: "gray", fontSize: "small", marginBottom: "2px"}}>live</p>
                             :
-                            null
+                            <p className="text-align-center" style={{color: "gray", fontSize: "small", marginBottom: "2px"}}>scheduled</p>
                         )
                     }
                     <p className="estimated_button" style={{marginTop: "0px", backgroundColor: `${(estimated_string === scheduled_string ? "#ffffa8" : "#aaffaa")}`}}>
