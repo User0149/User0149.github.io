@@ -89,7 +89,7 @@ function DeparturesListElem({selectedStop, departures}){
             {
                 departures.departures.map(departure => {
                     return (
-                        <DepartureItem key={departure.run_ref.toString() +","+ selectedStop.stop_id.toString()} selectedStop={selectedStop} departure={departure} destination={runs[departure.run_ref].destination_name}/>
+                        <DepartureItem key={departure.run_ref.toString() +","+ selectedStop.stop_id.toString()+","+departure.scheduled_departure_utc} selectedStop={selectedStop} departure={departure} destination={runs[departure.run_ref].destination_name}/>
                     );
                 })
             }

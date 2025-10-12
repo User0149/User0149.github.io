@@ -35,6 +35,7 @@ function App() {
 
         const [lat, long] = [cur_pos.coords.latitude, cur_pos.coords.longitude];
         setPos([lat, long]);
+        // console.log(pos);
         // setLat("-37.8177");
         // setLong("144.9514");
 
