@@ -2,42 +2,28 @@ import APIQuery from './api.js'
 import {useEffect, useState} from 'react';
 
 async function NextDepartures(selectedStop) {
-    if (selectedStop == null) return [];
+    if (selectedStop == null) return {};
 
     let route_type = selectedStop.route_type.toString();
     let stop_id = selectedStop.stop_id.toString();
-    const response = await APIQuery(`/v3/departures/route_type/${route_type}/stop/${stop_id}`);
-    if (!response) return [];
-    return response.departures;
-}
-async function RouteDirections(route_id) {
-    const response = await APIQuery(`/v3/directions/route/${route_id}`);
-    if (!response || !response.directions) return [];
-    const directions_list = response.directions;
-    return directions_list;
+    const response = await APIQuery(`/v3/departures/route_type/${route_type}/stop/${stop_id}?max_results=10&expand=0`);
+    if (!response) return {};
+    return response;
 }
 
-function DepartureItem({selectedStop, departure, RouteDirectionsList}){
+function DepartureItem({selectedStop, departure, destination}){
     const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
     const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
 
     const route_id = departure.route_id;
-    const direction_id = departure.direction_id;
     const platform_number = departure.platform_number;
-    let route_number, route_name, direction_name = ["", "", ""];
+    let route_number, route_name = ["", ""];
 
     const route_type = selectedStop.route_type;
 
     for (let route of selectedStop.routes) {
         if (route.route_id === route_id) {
             [route_number, route_name] = [route.route_number, route.route_name];
-        }
-    }
-    if (route_id in RouteDirectionsList) {
-        for (const direction of RouteDirectionsList[route_id]) {
-            if (direction.direction_id === direction_id){
-                direction_name = direction.direction_name;
-            }
         }
     }
 
@@ -52,7 +38,7 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
                         {scheduled_string.slice(0,5)}
                     </p>
                     <p className="float-right-10 margin-top-10px" style={{width: "200px", marginLeft: "25px"}}>
-                        towards {direction_name}
+                        to {destination}
                     </p>
                 </div>
 
@@ -83,29 +69,12 @@ function DepartureItem({selectedStop, departure, RouteDirectionsList}){
 }
 
 function DeparturesListElem({selectedStop, departures}){
-    const [RouteDirectionsList, setRouteDirectionsList] = useState({});
-
-    useEffect(() => {
-        (async () => {
-            if (!selectedStop) return;
-            
-            let ret = {};
-            for (let route of selectedStop.routes) {
-                if (ret[route.route_id] === undefined) {
-                    ret[route.route_id] = await RouteDirections(route.route_id);
-                }
-            }
-
-            setRouteDirectionsList(ret);
-        })();
-    }, [selectedStop]);
-
-    if (!selectedStop) {
+    if (!selectedStop || !departures.departures || !departures.runs) {
         return (
             <></>
         );
     }
-    if (departures.length === 0) {
+    if (departures.departures.length === 0) {
         return (
             <div className="height100 text-align-center">
                 <p>There are no departures from this stop.</p>
@@ -113,12 +82,14 @@ function DeparturesListElem({selectedStop, departures}){
         );
     }
 
+    const runs = departures.runs;
+
     return (
         <div className="overflow" style={{height: "calc(100% - 54px)"}}>
             {
-                departures.map(departure => {
+                departures.departures.map(departure => {
                     return (
-                        <DepartureItem key={departure.run_ref} selectedStop={selectedStop} departure={departure} RouteDirectionsList={RouteDirectionsList}/>
+                        <DepartureItem key={departure.run_ref.toString() +","+ selectedStop.stop_id.toString()} selectedStop={selectedStop} departure={departure} destination={runs[departure.run_ref].destination_name}/>
                     );
                 })
             }
@@ -127,17 +98,12 @@ function DeparturesListElem({selectedStop, departures}){
 }
 
 export default function NextDeparturesElem({selectedStop}) {
-    const [departures, setDepartures] = useState([]);
+    const [departures, setDepartures] = useState({});
     useEffect(() => {
         (async () => {
-            const departuresList = await NextDepartures(selectedStop);
-            if (departuresList) {
-                setDepartures(departuresList.filter(departure => {
-                    const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
-                    const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
-
-                    return (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date()));
-                }));
+            const response = await NextDepartures(selectedStop);
+            if (response) {
+                setDepartures(response);
             }
         })();
     }, [selectedStop]);
@@ -149,14 +115,9 @@ export default function NextDeparturesElem({selectedStop}) {
                 <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={
                     () => {
                         (async () => {
-                            const departuresList = await NextDepartures(selectedStop);
-                            if (departuresList) {
-                                setDepartures(departuresList.filter(departure => {
-                                    const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
-                                    const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
-
-                                    return (estimated_departure_utc > new Date() || (estimated_departure_utc == null && scheduled_departure_utc > new Date()));
-                                }));
+                            const response = await NextDepartures(selectedStop);
+                            if (response) {
+                                setDepartures(response);
                             }
                         })();
                     }

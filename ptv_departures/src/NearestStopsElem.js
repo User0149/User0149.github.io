@@ -1,20 +1,3 @@
-import APIQuery from './api.js'
-import {useState} from 'react';
-
-async function NearestStops() {
-    const pos = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, () => alert("Could not get location."));
-    });
-
-    let lat = pos.coords.latitude.toString();
-    let long = pos.coords.longitude.toString();
-    // lat = -37.8377;
-    // long = 145.0;
-
-    const ret = await APIQuery(`/v3/stops/location/${lat},${long}?max_distance=1000`);
-    return ret;
-}
-
 function StopItem({selectedStop, setSelectedStop, stop}){
     return (
         <div className="width100 stop_box flex" key={[stop.stop_id.toString(),stop.route_type.toString()].toString()} style={(stop === selectedStop ? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
@@ -32,7 +15,7 @@ function StopItem({selectedStop, setSelectedStop, stop}){
                             stop.routes.map(route => {
                                 const colour=["#008cce","#71be46","#ff8200","#7d4296","#ff8200"];
                                 return (
-                                    <span key={`${[stop.stop_id.toString(), route.route_name.toString()].toString()}`} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`}}>
+                                    <span key={[stop.stop_id.toString(), route.route_name.toString()].toString()} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`}}>
                                         {(route.route_number ? route.route_number : route.route_name)}
                                     </span>
                                 );
@@ -47,7 +30,6 @@ function StopItem({selectedStop, setSelectedStop, stop}){
 }
 
 function StopsListElem({stopsList, selectedStop, setSelectedStop, devID, devKey}){
-
     if (devID == null || devID === "" || devKey == null|| devKey === "") {
         return (
             <p className="text-align-center font-x-large font-red">Please configure your PTV developer ID and key in the settings.</p>
@@ -76,23 +58,7 @@ function StopsListElem({stopsList, selectedStop, setSelectedStop, devID, devKey}
     );
 }
 
-export default function NearestStopsElem({selectedStop, setSelectedStop, devID, devKey}) {
-    let [stopsList, setStopsList] = useState(null); 
-
-    const getLocation = async () => {
-        let API_ret = await NearestStops();
-        if (!API_ret) {
-            alert("Something went wrong.");
-        }
-
-        setStopsList(API_ret.stops);
-        if (API_ret.stops.length >= 1) {
-            setSelectedStop(API_ret.stops[0]);
-        }
-    };
-
-    if (selectedStop == null) getLocation();
-
+export default function NearestStopsElem({selectedStop, setSelectedStop, stopsList, getLocation, devID, devKey}) {
     return (
         <div className="border-right width25 height100">
             <div className="position-relative background-grey font-x-large text-align-center padding15px font-large">

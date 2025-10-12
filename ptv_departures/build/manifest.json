@@ -1,11 +1,12 @@
 {
   "short_name": "PTV Departures",
-  "name": "View PTV Departures",
+  "name": "PTV Departures",
   "icons": [
     
   ],
   "start_url": ".",
   "display": "standalone",
+  "orientation":  "landscape",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
