@@ -28,37 +28,39 @@ function App() {
         setDevKey("");
     }
 
-    const getStops = async (lat, long) => {
+    const getStops = useCallback(async (lat, long) => {
         let API_ret = await NearestStops(lat, long);
         if (!API_ret) {
             console.log("Something went wrong.");
         }
  
         setStopsList(API_ret.stops);
-        if (API_ret.stops.length >= 1) {
+        if (API_ret.stops.length >= 1 && !selectedStop) {
             setSelectedStop(API_ret.stops[0]);
         }
-    };
+    }, [selectedStop]);
     
-    const getLocation = async () => {
+    const getLocation = useCallback(async () => {
         const cur_pos = await new Promise((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, () => alert("Could not get location."));
+            navigator.geolocation.getCurrentPosition(resolve, () => console.log("Could not get location."));
         });
 
         const [lat, long] = [Math.round(cur_pos.coords.latitude*1e6)/1e6, Math.round(cur_pos.coords.longitude*1e6)/1e6];
         // const [lat, long] = [-37.8177, 144.9514];
         setPos([lat, long]);
         return [lat, long];
-    };
+    }, []);
 
     const getLocationAndStops = useCallback(async () => {
         const [lat, long] = await getLocation();
         getStops(lat, long);
-    }, []);
+    }, [getLocation, getStops]);
 
     useEffect(() => {
         getLocationAndStops();
-    },[getLocationAndStops]);
+        const interval = setInterval(getLocationAndStops, 30000);
+        return () => clearInterval(interval);
+    }, [getLocationAndStops]);
 
     return (
         <>

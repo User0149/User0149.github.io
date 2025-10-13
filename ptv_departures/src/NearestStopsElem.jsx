@@ -1,6 +1,6 @@
 function StopItem({selectedStop, setSelectedStop, stop}){
     return (
-        <div className="width100 stop_box flex" key={[stop.stop_id.toString(),stop.route_type.toString()].toString()} style={(stop === selectedStop ? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
+        <div className="width100 stop_box flex" key={[stop.stop_id.toString(),stop.route_type.toString()].toString()} style={((stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type)? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
             <img src={`route_type_${stop.route_type.toString()}.svg`} alt={`route_type_${stop.route_type.toString()}.svg`} width="40px" style={{padding: "15px"}}/>
 
             <div className="width100 height100" style={{fontSize: "0.9em"}}>

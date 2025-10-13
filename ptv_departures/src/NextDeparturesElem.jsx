@@ -1,5 +1,5 @@
 import APIQuery from './api.js'
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 async function NextDepartures(selectedStop) {
     if (selectedStop == null) return {};
@@ -99,29 +99,25 @@ function DeparturesListElem({selectedStop, departures}){
 
 export default function NextDeparturesElem({selectedStop}) {
     const [departures, setDepartures] = useState({});
-    useEffect(() => {
-        (async () => {
-            const response = await NextDepartures(selectedStop);
-            if (response) {
-                setDepartures(response);
-            }
-        })();
+
+    const getDepartures = useCallback(async () => {
+        const response = await NextDepartures(selectedStop);
+        if (response) {
+            setDepartures(response);
+        }
     }, [selectedStop]);
+
+    useEffect(() => {
+        getDepartures();
+        const interval = setInterval(getDepartures, 30000);
+        return () => clearInterval(interval);
+    }, [selectedStop, getDepartures]);
 
     return (
         <div className="border-right width25 height100">
             <div className="position-relative background-grey font-x-large text-align-center padding15px font-large">
                 <div>Next Departures</div>
-                <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={
-                    () => {
-                        (async () => {
-                            const response = await NextDepartures(selectedStop);
-                            if (response) {
-                                setDepartures(response);
-                            }
-                        })();
-                    }
-                }>
+                <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={getDepartures}>
                     <img alt="update" src="refresh.svg" width="20px" height="20px"></img>
                 </div>
             </div>
