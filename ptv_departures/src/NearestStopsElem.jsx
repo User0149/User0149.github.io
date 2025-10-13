@@ -38,7 +38,9 @@ function StopsListElem({stopsList, selectedStop, setSelectedStop, devID, devKey}
 
     if (stopsList == null) {
         return (
-            <></>
+            <div className="height100 text-align-center">
+                <p>Loading…</p>
+            </div>
         );
     }
     if (stopsList.length === 0) {

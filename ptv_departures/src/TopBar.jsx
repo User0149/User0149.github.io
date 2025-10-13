@@ -3,14 +3,16 @@ import {useEffect, useState} from 'react';
 export default function TopBar({devID, devKey, setDevID, setDevKey}){
     let [curTime, setCurTime] = useState(new Date().toLocaleTimeString());
     useEffect(() => {
-        setInterval(() => {
+        const interval = setInterval(() => {
             setCurTime(new Date().toLocaleTimeString());
         }, 100);
+
+        return () => clearInterval(interval);
     }, []);
 
     return (
         <>
-            <div className="top-bar flex-center white-text position-relative">
+            <div className="top-bar flex-center white-text position-relative z-index-1k">
                 <div className="center">Current time: {curTime}</div>
             </div>
             <div id="settings_elem_box" className="visibility-hidden z-index-1k white-text position-fixed-right" style={{width: "200px", top: "0px"}}>

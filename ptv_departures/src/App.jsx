@@ -58,7 +58,7 @@ function App() {
 
     useEffect(() => {
         getLocationAndStops();
-        const interval = setInterval(getLocationAndStops, 30000);
+        const interval = setInterval(getLocationAndStops, 15000);
         return () => clearInterval(interval);
     }, [getLocationAndStops]);
 

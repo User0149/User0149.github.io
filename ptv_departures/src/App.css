@@ -1,117 +1,133 @@
-body{
+body {
     overflow: hidden;
 }
-.overflow-hidden{
+html, body, #root {
+    height: 100%;
+    margin: 0;
+}
+@media only screen and (orientation: portrait) {
+    html {
+        transform-origin: 50% 50%;
+        transform: rotate(90deg);
+        width: 100vh;
+        height: 100vw;
+        position: absolute;
+        top: 0%;
+        left: 100%;
+    }
+}
+
+.overflow-hidden {
     overflow: hidden;
 }
-.border{
+.border {
     border: 1px solid grey;
 }
-.border-bottom{
+.border-bottom {
     border-bottom: 1px solid grey;
 }
-.border-right{
+.border-right {
     border-right: 1px solid grey;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.height100vh{
+.height100vh {
     height: 100vh;
 }
-.height100{
+.height100 {
     height: 100%;
 }
-.height25{
+.height25 {
     height: 25%;
 }
-.width100{
+.width100 {
     width: 100%;
 }
-.width75{
+.width75 {
     width: 75%;
 }
-.width25{
+.width25 {
     width: 25%;
 }
-.width50{
+.width50 {
     width: 50%;
 }
 
-.stop_box:hover{
+.stop_box:hover {
     background-color: #d5d5d5;
     cursor: pointer;
 }
-.stop_box{
+.stop_box {
     height: 120px;
     border-bottom: 1px solid grey;
 }
-.departure_box{
+.departure_box {
     height: 120px;
     border-bottom: 1px solid grey;
 }
-.departure_box:hover{
+.departure_box:hover {
     background-color: #d5d5d5;
 }
 
-.clickable:hover{
+.clickable:hover {
     cursor: pointer;
 }
-.overflow{
+.overflow {
     overflow: auto;
 }
-.overflow::-webkit-scrollbar{
+.overflow::-webkit-scrollbar {
     display: none;
 }
 
-.text-align-center{
+.text-align-center {
     text-align: center;
 }
-.center{
+.center {
     margin: auto;
 }
 
-.flex-center{
+.flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.flex-space{
+.flex-space {
     display: flex;
     justify-content: space-between;
 }
-.font-x-large{
+.font-x-large {
     font-size: x-large;
 }
-.font-large{
+.font-large {
     font-size: large;
 }
 
-.float-right{
+.float-right {
     float: right;
 }
-.red{
+.red {
     background-color: red;
 }
 
-.background-grey{
+.background-grey {
     background-color: #45484a;
     color: white;
 }
-.padding15px{
+.padding15px {
     padding: 15px;
 }
-.padding10px{
+.padding10px {
     padding: 10px;
 }
 
-.rounded_h{
+.rounded_h {
     border-radius: 50vh;
 }
 
-.small_route_button{
+.small_route_button {
     display: inline-block;
     border-radius: 50vh;
     text-align: center;
@@ -123,19 +139,19 @@ body{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-.margin-top-10px{
+.margin-top-10px {
     margin-top: 10px;
 }
-.inline-block{
+.inline-block {
     display: inline-block;
 }
-.margin-right-0{
+.margin-right-0 {
     margin-right: 0px;
 }
-.font-grey{
+.font-grey {
     color: grey;
 }
-.estimated_button{
+.estimated_button {
     border: 1px solid black;
     border-radius: 50vh;
     text-align: center;
@@ -146,75 +162,75 @@ body{
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.float-right-10{
+.float-right-10 {
     margin-left: auto;
     margin-right: 10px;
 }
-.top-bar{
+.top-bar {
     background-color: black;
     height: 30px;
 }
-.white-text{
+.white-text {
     color: white;
 }
-.position-absolute{
+.position-absolute {
     position: absolute;
 }
-.position-relative{
+.position-relative {
     position: relative;
 }
-.bold{
+.bold {
     font-weight: bold;
 }
-#settings_icon_box:hover{
+#settings_icon_box:hover {
     background-color: gray;
     cursor: pointer;
 }
-.black-background{
+.black-background {
     background-color: black;
 }
-.position-fixed-right{
+.position-fixed-right {
     position: fixed;
     right: 0px;
 }
-.font-red{
+.font-red {
     color: red;
 }
 
-#settings_elem{
+#settings_elem {
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
-#settings_icon_box:hover + #settings_elem{
+#settings_icon_box:hover + #settings_elem {
     visibility: visible;
     opacity: 1;
 }
-#settings_elem:hover{
+#settings_elem:hover {
     opacity: 1;
     visibility: visible;
 }
-.visibility-visible{
+.visibility-visible {
     visibility: visible;
 }
-.visibility-hidden{
+.visibility-hidden {
     visibility: hidden;
 }
-.z-index-1k{
+.z-index-1k {
     z-index: 1000;
 }
-.z-index-0{
+.z-index-0 {
     z-index: 0;
 }
-.opacity-0{
+.opacity-0 {
     opacity: 0;
 }
 
-#refresh_icon_box:hover{
+#refresh_icon_box:hover {
     background-color: gray;
     cursor: pointer;
 }
-.leaflet-container {
+.leaflet-container  {
   width: 100%;
   height: 100vh;
 }

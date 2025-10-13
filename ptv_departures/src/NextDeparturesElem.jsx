@@ -109,7 +109,7 @@ export default function NextDeparturesElem({selectedStop}) {
 
     useEffect(() => {
         getDepartures();
-        const interval = setInterval(getDepartures, 30000);
+        const interval = setInterval(getDepartures, 15000);
         return () => clearInterval(interval);
     }, [selectedStop, getDepartures]);
 
