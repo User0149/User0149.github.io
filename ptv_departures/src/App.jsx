@@ -1,10 +1,10 @@
 import './App.css';
-import {useState} from 'react';
+import {useEffect, useState, useCallback} from 'react';
 
-import NearestStopsElem from './NearestStopsElem.js'
-import NextDeparturesElem from './NextDeparturesElem.js'
-import MapElem from './MapElem.js';
-import TopBar from './TopBar.js';
+import NearestStopsElem from './NearestStopsElem.jsx'
+import NextDeparturesElem from './NextDeparturesElem.jsx'
+import MapElem from './MapElem.jsx';
+import TopBar from './TopBar.jsx';
 import APIQuery from './api.js'
 
 async function NearestStops(lat, long) {
@@ -27,36 +27,44 @@ function App() {
         localStorage.setItem("dev_key", "");
         setDevKey("");
     }
+
+    const getStops = async (lat, long) => {
+        let API_ret = await NearestStops(lat, long);
+        if (!API_ret) {
+            console.log("Something went wrong.");
+        }
+ 
+        setStopsList(API_ret.stops);
+        if (API_ret.stops.length >= 1) {
+            setSelectedStop(API_ret.stops[0]);
+        }
+    };
     
     const getLocation = async () => {
         const cur_pos = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, () => alert("Could not get location."));
         });
 
-        const [lat, long] = [cur_pos.coords.latitude, cur_pos.coords.longitude];
+        const [lat, long] = [Math.round(cur_pos.coords.latitude*1e6)/1e6, Math.round(cur_pos.coords.longitude*1e6)/1e6];
+        // const [lat, long] = [-37.8177, 144.9514];
         setPos([lat, long]);
-        // console.log(pos);
-        // setLat("-37.8177");
-        // setLong("144.9514");
-
-        let API_ret = await NearestStops(lat, long);
-        if (!API_ret) {
-            console.log("Something went wrong.");
-        }
-
-        setStopsList(API_ret.stops);
-        if (API_ret.stops.length >= 1) {
-            setSelectedStop(API_ret.stops[0]);
-        }
+        return [lat, long];
     };
 
-    if (selectedStop == null) getLocation();
+    const getLocationAndStops = useCallback(async () => {
+        const [lat, long] = await getLocation();
+        getStops(lat, long);
+    }, []);
+
+    useEffect(() => {
+        getLocationAndStops();
+    },[getLocationAndStops]);
 
     return (
         <>
             <TopBar devID={devID} devKey={devKey} setDevID={setDevID} setDevKey={setDevKey}/>
             <div className="flex" style={{height: "calc(100vh - 30px)"}}>
-                <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} getLocation={getLocation} stopsList={stopsList} devID={devID} devKey={devKey}/>
+                <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} getLocationAndStops={getLocationAndStops} stopsList={stopsList} devID={devID} devKey={devKey}/>
                 <NextDeparturesElem selectedStop={selectedStop}/>
                 <MapElem pos={pos} selectedStop={selectedStop} stopsList={stopsList}/>
             </div>
