@@ -2,7 +2,14 @@
   "short_name": "PTV Departures",
   "name": "PTV Departures",
   "icons": [
-    
+    {
+      "src": "icons/icon-192x192.svg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/icon-512x512.svg",
+      "sizes": "512x512"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
