@@ -28,6 +28,8 @@ function DepartureItem({selectedStop, departure, destination}){
     }
 
     const scheduled_string = scheduled_departure_utc.toLocaleTimeString("fr-FR").slice(0,5);
+    const scheduled_string_extended = (scheduled_departure_utc.toDateString() === (new Date()).toDateString() ? "" : `${scheduled_departure_utc.toDateString().slice(0,3)} `) + scheduled_string;
+
     const estimated_string = (estimated_departure_utc ? (estimated_departure_utc.getTime() === scheduled_departure_utc.getTime() ? scheduled_string : estimated_departure_utc.toLocaleTimeString("fr-FR")) : scheduled_string);
 
     return (
@@ -35,7 +37,7 @@ function DepartureItem({selectedStop, departure, destination}){
             <div style={{width: "calc(100% - 100px)", marginLeft: "10px"}}>
                 <div className="flex">
                     <p className="margin-top-10px">
-                        {scheduled_string.slice(0,5)}
+                        {scheduled_string_extended}
                     </p>
                     <p className="float-right-10 margin-top-10px" style={{width: "200px", marginLeft: "25px"}}>
                         to {destination}
