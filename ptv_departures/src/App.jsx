@@ -8,7 +8,7 @@ import TopBar from './TopBar.jsx';
 import APIQuery from './api.js'
 
 async function NearestStops(lat, long) {
-    const ret = await APIQuery(`/v3/stops/location/${lat},${long}?max_distance=1000`);
+    const ret = await APIQuery(`/v3/stops/location/${lat},${long}?max_distance=1000&max_results=1000`);
     return ret;
 }
 
