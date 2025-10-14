@@ -54,7 +54,7 @@ html, body, #root {
     border-bottom: 1px solid grey;
 }
 .departure_box {
-    height: 120px;
+    min-height: 120px;
     border-bottom: 1px solid grey;
 }
 .departure_box:hover {
@@ -121,7 +121,7 @@ html, body, #root {
     border-radius: 50vh;
     text-align: center;
     margin-right: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     
     padding-left: 5px;
     padding-right: 5px;

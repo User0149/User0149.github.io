@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {MapContainer, TileLayer, Marker, Circle, CircleMarker} from 'react-leaflet'
 
 export default function MapElem({pos, selectedStop, stopsList}) {
     const [map, setMap] = useState(null);
 
     useEffect(() => {
-        if (map) {
+        if (map && (map.getCenter().lat !== pos[0] || map.getCenter().lng !== pos[1])) {
             map.flyTo(pos, 15, {duration: 1});
         }
     }, [pos, map]);

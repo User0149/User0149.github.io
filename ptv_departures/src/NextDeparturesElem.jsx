@@ -36,20 +36,20 @@ function DepartureItem({selectedStop, departure, destination}){
         <div className="width100 departure_box flex">
             <div style={{width: "calc(100% - 100px)", marginLeft: "10px"}}>
                 <div className="flex">
-                    <p className="margin-top-10px">
+                    <div className="margin-top-10px">
                         {scheduled_string_extended}
-                    </p>
-                    <p className="float-right-10 margin-top-10px" style={{width: "200px", marginLeft: "25px"}}>
+                    </div>
+                    <div className="float-right-10 margin-top-10px" style={{width: "200px", marginLeft: "25px"}}>
                         to {destination}
-                    </p>
+                    </div>
                 </div>
 
-                <div className="small_route_button" style={{border: `1.5px solid ${["#008cce","#71be46","#ff8200","#7d4296","#ff8200"][route_type]}`, fontSize: "0.9em"}}>
-                    {(route_number ? route_number : route_name)}
-                </div>
-                
-                <div style={{fontSize: "small", color: "#555555"}}>
+                <div style={{fontSize: "small", color: "#555555", marginTop: "5px"}}>
                     {platform_number ? `Platform ${platform_number}` : ""}
+                </div>
+
+                <div className="small_route_button" style={{border: `1.5px solid ${["#008cce","#71be46","#ff8200","#7d4296","#ff8200"][route_type]}`, fontSize: "0.9em", marginTop: "15px"}}>
+                    {(route_number ? route_number : route_name)}
                 </div>
             </div>
             <div className="float-right-10 flex-center">
