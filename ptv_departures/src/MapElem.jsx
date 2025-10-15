@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
-import {MapContainer, TileLayer, Marker, Circle, CircleMarker} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Circle, Tooltip} from 'react-leaflet'
+import {iconRoute, iconRed} from './Markers.js'
 
 export default function MapElem({pos, selectedStop, stopsList}) {
     const [map, setMap] = useState(null);
@@ -31,19 +32,19 @@ export default function MapElem({pos, selectedStop, stopsList}) {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-                <Marker position={pos}/>
-                <CircleMarker center={pos} pathOptions={{color: "red"}} radius={10}/>
+                <Marker position={pos} icon={iconRed}>
+                    <Tooltip>Your location</Tooltip>
+                </Marker>
                 <Circle center={pos} pathOptions={{color: "green", fill: false, dashArray: "15"}} radius={1000}/>
 
                 {
                     stopsList.map(stop => {
                         return (
-                            <Marker key={stop.stop_id.toString() + stop.route_type.toString() + "_marker"} position={[stop.stop_latitude, stop.stop_longitude]}/>
+                            <Marker key={stop.stop_id.toString() + stop.route_type.toString() + "_marker"} position={[stop.stop_latitude, stop.stop_longitude]} icon={iconRoute(stop.route_type, (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 40 : 30))} opacity={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1.0 : 0.9)}>
+                                <Tooltip>{stop.stop_name}</Tooltip>
+                            </Marker>
                         );
                     })
-                }
-                {
-                    <CircleMarker center={[selectedStop.stop_latitude, selectedStop.stop_longitude]} pathOptions={{color: "green"}} radius={7}/>
                 }
             </MapContainer>
         </div>
