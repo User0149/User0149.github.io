@@ -40,7 +40,7 @@ export default function MapElem({pos, selectedStop, stopsList}) {
                 {
                     stopsList.map(stop => {
                         return (
-                            <Marker key={stop.stop_id.toString() + stop.route_type.toString() + "_marker"} position={[stop.stop_latitude, stop.stop_longitude]} icon={iconRoute(stop.route_type, (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 40 : 30))} opacity={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1.0 : 0.9)}>
+                            <Marker key={stop.stop_id.toString() + stop.route_type.toString() + "_marker"} position={[stop.stop_latitude, stop.stop_longitude]} icon={iconRoute(stop.route_type, (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 40 : 30))} opacity={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1.0 : 0.9)} eventHandlers={{mouseover: (e) => console.log(`${stop.route_type},${stop.stop_id}`)}}>
                                 <Tooltip>{stop.stop_name}</Tooltip>
                             </Marker>
                         );
