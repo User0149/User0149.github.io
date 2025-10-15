@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {MapContainer, TileLayer, Marker, Circle, Tooltip} from 'react-leaflet'
 import {iconRoute, iconRed} from './Markers.js'
 
-export default function MapElem({pos, selectedStop, stopsList}) {
+export default function MapElem({pos, selectedStop, setSelectedStop, stopsList}) {
     const [map, setMap] = useState(null);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export default function MapElem({pos, selectedStop, stopsList}) {
                             position={[stop.stop_latitude, stop.stop_longitude]} 
                             icon={iconRoute(stop.route_type, (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 40 : 30))} 
                             opacity={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1.0 : 0.9)} 
-                            zIndexOffset={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1500 : 0)}
+                            zIndexOffset={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1500 : 0) + (stop.route_type === 0 ? 1 : 0)}
                             eventHandlers={
                                 {
                                     mouseover: (e) => document.getElementById(`${stop.route_type},${stop.stop_id}`).style.backgroundColor="#d5d5d5", 
@@ -57,7 +57,7 @@ export default function MapElem({pos, selectedStop, stopsList}) {
                                             document.getElementById(`${stop.route_type},${stop.stop_id}`).style.removeProperty("background-color");
                                         }
                                     },
-                                    // click: (e) => setSelectedStop(
+                                    click: (e) => {setSelectedStop(stop)}
                                 }
                             }>
                                 <Tooltip>{stop.stop_name}</Tooltip>
