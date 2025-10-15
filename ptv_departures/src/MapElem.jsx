@@ -32,7 +32,7 @@ export default function MapElem({pos, selectedStop, stopsList}) {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-                <Marker position={pos} icon={iconRed}>
+                <Marker position={pos} icon={iconRed} zIndexOffset={1000}>
                     <Tooltip>Your location</Tooltip>
                 </Marker>
                 <Circle center={pos} pathOptions={{color: "green", fill: false, dashArray: "15"}} radius={1000}/>
@@ -40,7 +40,26 @@ export default function MapElem({pos, selectedStop, stopsList}) {
                 {
                     stopsList.map(stop => {
                         return (
-                            <Marker key={stop.stop_id.toString() + stop.route_type.toString() + "_marker"} position={[stop.stop_latitude, stop.stop_longitude]} icon={iconRoute(stop.route_type, (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 40 : 30))} opacity={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1.0 : 0.9)} eventHandlers={{mouseover: (e) => console.log(`${stop.route_type},${stop.stop_id}`)}}>
+                            <Marker 
+                            key={stop.stop_id.toString() + stop.route_type.toString() + "_marker"} 
+                            position={[stop.stop_latitude, stop.stop_longitude]} 
+                            icon={iconRoute(stop.route_type, (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 40 : 30))} 
+                            opacity={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1.0 : 0.9)} 
+                            zIndexOffset={(stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type ? 1500 : 0)}
+                            eventHandlers={
+                                {
+                                    mouseover: (e) => document.getElementById(`${stop.route_type},${stop.stop_id}`).style.backgroundColor="#d5d5d5", 
+                                    mouseout: (e) => {
+                                        if (stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type) {
+                                            document.getElementById(`${stop.route_type},${stop.stop_id}`).style.backgroundColor = "#d5d5d5";
+                                        }
+                                        else {
+                                            document.getElementById(`${stop.route_type},${stop.stop_id}`).style.removeProperty("background-color");
+                                        }
+                                    },
+                                    // click: (e) => setSelectedStop(
+                                }
+                            }>
                                 <Tooltip>{stop.stop_name}</Tooltip>
                             </Marker>
                         );
