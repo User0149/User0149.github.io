@@ -117,7 +117,7 @@ export default function NextDeparturesElem({selectedStop, setDisruptionIDs, setD
             setDepartures(response);
             setDisruptions(response.disruptions);
         }
-    }, [selectedStop]);
+    }, [selectedStop, setDisruptions]);
 
     useEffect(() => {
         getDepartures();

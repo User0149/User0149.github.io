@@ -3,7 +3,7 @@ export default function Disruption({disruptionIDs, disruptions, showDisruptions,
     
     return (
         <div id="modal_background" className="modal flex-center" onClick={(e) => {
-            if (e.target == document.getElementById("modal_background")) {
+            if (e.target === document.getElementById("modal_background")) {
                 setShowDisruptions(false);
             }
         }}>
@@ -14,7 +14,7 @@ export default function Disruption({disruptionIDs, disruptions, showDisruptions,
                         <div key={id}>
                             <p className="bold">{disruptions[id].title}</p>
                             <p>{disruptions[id].description}</p>
-                            <a href={disruptions[id].url} target="_blank">More Information</a>
+                            <a href={disruptions[id].url} rel="noopener noreferrer" target="_blank">More Information</a>
                             <hr/>
                         </div>
                     )
