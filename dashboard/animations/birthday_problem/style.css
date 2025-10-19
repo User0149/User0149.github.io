@@ -1,0 +1,15 @@
+
+td{
+    border: 1px solid black;
+
+    height: calc(min(100vh - 155px, 100vw - 30px) / 5);
+    width: calc(min(100vh - 155px, 100vw - 30px) / 5);
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}

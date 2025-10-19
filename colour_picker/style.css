@@ -1,0 +1,122 @@
+#colour_display_pane{
+    width: 30%;
+    height: 97vh;
+}
+#colour_edit_pane{
+    width: 70%;
+    height: 97vh;
+}
+.overflow{
+    overflow: auto;
+}
+.black_border{
+    border: 1px solid black;
+}
+#colour_box{
+    aspect-ratio: 1/1;
+    width: 85%;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    background-color: black;
+    border: 1px solid black;
+
+    position: relative;
+}
+#colour_preview_box{
+    height: 40%;
+    width: 40%;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+    background-color: black;
+}
+.colour_description{
+    width: 90%;
+    margin: auto;
+}
+.clipboard{
+    width: 9%;
+    height: 30px;
+    padding: 5px;
+    background-color: #aaaaaa;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.clipboard:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+.clipboard_svg{
+    margin-right: 10px;
+}
+.colour_description_input{
+    background-color: #aaaaaa;
+    border-width: 0px;
+    width: 100%;
+}
+.grey_box{
+    height: 30px;
+    width: 91%;
+    margin-right: 0;
+    margin-bottom: 15px;
+    padding: 5px;
+    padding-left: 15px;
+    background-color: #aaaaaa;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.flex{
+    display: flex;
+}
+.center{
+    margin: auto;
+}
+.flex_align_center{
+    align-items: center;
+}
+.courier_new{
+    font-family: 'Courier New', Courier, monospace;
+}
+.text_center{
+    text-align: center;
+}
+.table_colour{
+    width: 180px;
+}
+.slider{
+    height: 40px;
+    /* background-image: linear-gradient(to right,black,red); */
+}
+.slider:hover{
+    cursor: pointer;
+}
+.slider_row{
+    height: 50px;
+}
+.float_left{
+    float: left;
+}
+.float_right{
+    float: right;
+}
+.flex_float_right{
+    margin-left: auto;
+}
+.fill_parent_width{
+    width: 100%;
+}
+.table_colour_preview{
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    margin-right: 25px;
+    border: 1px solid black;
+    /* background-color: red; */
+}
+.table_colour_preview:hover{
+    cursor: pointer;
+}

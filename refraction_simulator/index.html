@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Refraction Simulator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css"> </link>
+        
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="canvas_container">
+            <canvas id="canvs">Your browser does not support the HTML canvas element.</canvas> 
+            <div id="medium1" class="medium">
+                <div id="medium1_input" class="center">
+                    <label for="index1" class="statistic">Refractive index:</label>
+                    <input id="index1" value="1" onchange="redraw();"><br>
+                    <div id="index1_error" class="statistic error">Index must be at least 1.</div>
+                    <br>
+
+                    <label for="incident_angle" class="statistic">Angle of incidence (degrees):</label>
+                    <input id="incident_angle" value="45" onchange="redraw();"> <br>
+                    <div id="incident_angle_error" class="statistic error">Angle must be non-negative and less than 90 degrees.</div>
+                </div>
+            </div>
+            <div id="medium2" class="medium">
+                <div id="medium2_input" class="center">
+                    <label for="index2">Refractive index:</label>
+                    <input id="index2" value="1.5" onchange="redraw();"><br>
+                    <div id="index2_error" class="statistic error">Index must be at least 1.</div>
+                    <br>
+
+                    <div id="statistics" class="statistic">
+                        Critical angle: <span id="critical_angle"> </span><br>
+                        Angle of refraction: <span id="refracted_angle"></span><br>
+                        <span id="TIR">Total internal reflection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Colour Picker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css"></link>
+        <script src="functions.js" defer></script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="flex">
+            <div id="colour_display_pane">
+                <div id="colour_box">
+                    <div id="colour_preview_box"></div>
+                </div>
+
+                <div class="flex colour_description">
+                    <div class="center flex fill_parent_width">
+                        <div class="grey_box flex">
+                            <div class="courier_new flex flex_align_center fill_parent_width">
+                                <div>RGB:&nbsp</div>
+                                <input id="rgb_value" class="courier_new colour_description_input" value="rgb(0,0,0)" oninput="try_rgb_preview(document.getElementById('rgb_value').value)" onchange="try_set_rgb(document.getElementById('rgb_value').value)"></input>
+                            </div>
+                        </div>
+                        <div class="flex flex_float_right flex_align_center clipboard" onclick="copy('rgb_value')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-copy clipboard_svg flex_float_right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex colour_description">
+                    <div class="center flex fill_parent_width">
+                        <div class="grey_box flex">
+                            <div class="courier_new flex flex_align_center fill_parent_width">
+                                <div>HEX:&nbsp</div>
+                                <input id="hex_value" class="courier_new colour_description_input" value="#000000" oninput="try_hex_preview(document.getElementById('hex_value').value)" onchange="try_set_hex(document.getElementById('hex_value').value)"></input>
+                            </div>
+                        </div>
+                        <div class="flex flex_float_right flex_align_center clipboard" onclick="copy('hex_value')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-copy clipboard_svg flex_float_right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="colour_edit_pane" class="overflow">
+                <h2 class="text_center">Add colours</h2>
+                <table class="fill_parent_width">
+                    <thead>
+                        <tr>
+                            <th class="table_colour"></th>
+                            <th class="table_slider">
+                                <div class="float_left">0%</div>
+                                <div class="float_right">100%</div> 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="slider_table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

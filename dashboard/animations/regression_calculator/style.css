@@ -1,0 +1,28 @@
+td,th{
+    border: 1px solid black;
+    padding: 0.75em;
+}
+
+body{
+    text-align: center;
+    /* margin: auto; */ /* We have floats*/
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+canvas{
+    padding: 10px;
+    /* border: 1px solid black; */
+}
+
+#graph_div{
+    display: block;
+    /* border: 1px solid black; */
+    float: left;
+}
+
+#info{
+    display: block;
+    /* border: 1px solid black; */
+    float: right;
+}

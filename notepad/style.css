@@ -1,0 +1,32 @@
+#editor{
+    background-color: white;
+    padding: 16px;
+    border: 1px solid rgb(153, 153, 153);
+    white-space: pre-wrap;
+    width: 100%;
+    resize: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    float: left;
+    display: block;
+    overflow: auto;
+
+    height: calc(100% - 10px);
+    width: calc(50% - 5px);
+}
+#display{
+    padding: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border: 1px solid rgb(153, 153, 153);
+    background-color: white;
+    white-space: pre-wrap;
+    word-wrap: break-word; 
+    /* resize: none; */
+    float: right;
+    display: block;
+    overflow: auto;
+    
+    height: calc(100% - 34px - 10px);
+    width: calc(50% - 34px - 5px);
+}
