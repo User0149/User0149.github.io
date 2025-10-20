@@ -6,7 +6,7 @@ export default function MapElem({pos, selectedStop, setSelectedStop, stopsList})
     const [map, setMap] = useState(null);
 
     useEffect(() => {
-        if (map && (map.getCenter().lat !== pos[0] || map.getCenter().lng !== pos[1])) {
+        if (map && ((map.getCenter().lat === 0  && map.getCenter().lng === 0)  || (map.getCenter().lat === -37.8136  && map.getCenter().lng === 144.9631))) {
             map.setView(pos, 15);
         }
     }, [pos, map]);
