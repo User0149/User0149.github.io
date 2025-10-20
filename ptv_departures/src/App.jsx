@@ -1,4 +1,4 @@
-import './App.css';
+import './style.css';
 import {useEffect, useState, useCallback} from 'react';
 
 import NearestStopsElem from './NearestStopsElem.jsx'

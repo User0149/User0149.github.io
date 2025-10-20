@@ -105,10 +105,10 @@ html, body, #root {
     background-color: #45484a;
     color: white;
 }
-.padding15px {
+.padding-15px {
     padding: 15px;
 }
-.padding10px {
+.padding-10px {
     padding: 10px;
 }
 
@@ -121,7 +121,7 @@ html, body, #root {
     border-radius: 50vh;
     text-align: center;
     margin-right: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     
     padding-left: 5px;
     padding-right: 5px;
