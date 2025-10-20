@@ -36,7 +36,7 @@ function DepartureItem({selectedStop, departure, destination, setDisruptionIDs, 
         <div className="width100 departure_box flex">
             <div style={{width: "calc(100% - 100px)", marginLeft: "10px"}}>
                 <div className="flex">
-                    <div className="margin-top-10px" style={{minWidth: "75px"}}>
+                    <div className="margin-top-10px" style={{minWidth: "75px", paddingRight: "10px"}}>
                         {scheduled_string_extended}
                     </div>
                     <div className="float-right-10 margin-top-10px" style={{width: "200px"}}>
