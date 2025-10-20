@@ -13,7 +13,7 @@ export default function MapElem({realPos, pos, setPos, selectedStop, setSelected
     
     if (!stopsList && !selectedStop) {
         return (
-            <div className="width50 height100">
+            <div className="height100" style={{width: (((window.innerWidth <= 800) && ( window.innerHeight <= 600 )) ? "30%" : "50%")}}>
                 <MapContainer center={[-37.8136, 144.9631]} zoom={15} scrollWheelZoom={true} ref={setMap} style={{width: "100%", height: "100%"}}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
