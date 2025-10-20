@@ -213,6 +213,9 @@ html, body, #root {
 .opacity-0 {
     opacity: 0;
 }
+.opacity-75 {
+    opacity: 0.75;
+}
 
 #refresh_icon_box:hover {
     background-color: gray;
@@ -250,4 +253,15 @@ html, body, #root {
 }
 .modal_close_button:hover {
     color: gray;
+}
+
+.set_location_button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.set_location_button {
+    opacity: 0.7;
+    background-color: black;
+
+    padding: 15px;
 }

@@ -18,7 +18,11 @@ function App() {
     const [devKey, setDevKey] = useState(localStorage.getItem("dev_key"));
     const [selectedStop, setSelectedStop] = useState(null);
     const [stopsList, setStopsList] = useState(null);
-    const [pos, setPos] = useState([0, 0]);
+    
+    const [useMapPos, setUseMapPos] = useState(0); // change it every time we set position to trigger new get position function
+
+    const [realPos, setRealPos] = useState([-37.8136, 144.9631]);
+    const [pos, setPos] = useState([-37.8136, 144.9631]);
     const [disruptionIDs, setDisruptionIDs] = useState([]);
     const [disruptions, setDisruptions] = useState({});
     const [showDisruptions, setShowDisruptions] = useState(false);
@@ -51,9 +55,14 @@ function App() {
 
         const [lat, long] = [Math.round(cur_pos.coords.latitude*1e6)/1e6, Math.round(cur_pos.coords.longitude*1e6)/1e6];
         // const [lat, long] = [-37.8177, 144.9614];
-        setPos([lat, long]);
-        return [lat, long];
-    }, []);
+
+        setRealPos([lat, long]);
+        if (useMapPos === 0) {
+            setPos([lat, long]);
+            return [lat, long];
+        }
+        return pos;
+    }, [useMapPos]);
 
     const getLocationAndStops = useCallback(async () => {
         const [lat, long] = await getLocation();
@@ -72,7 +81,7 @@ function App() {
             <div className="flex" style={{height: "calc(100vh - 30px)"}}>
                 <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} getLocationAndStops={getLocationAndStops} stopsList={stopsList} devID={devID} devKey={devKey}/>
                 <NextDeparturesElem selectedStop={selectedStop} setShowDisruptions={setShowDisruptions} setDisruptionIDs={setDisruptionIDs} setDisruptions={setDisruptions}/>
-                <MapElem pos={pos} selectedStop={selectedStop} setSelectedStop={setSelectedStop} stopsList={stopsList}/>
+                <MapElem realPos={realPos} pos={pos} setPos={setPos} selectedStop={selectedStop} setSelectedStop={setSelectedStop} stopsList={stopsList} useMapPos={useMapPos} setUseMapPos={setUseMapPos}/>
             </div>
 
             <Disruption disruptionIDs={disruptionIDs} disruptions={disruptions} showDisruptions={showDisruptions} setShowDisruptions={setShowDisruptions}/>
