@@ -48,9 +48,9 @@ function DepartureItem({selectedStop, departure, destination, setDisruptionIDs, 
                     {platform_number ? `Platform ${platform_number}` : ""}
                 </div>
 
-                <div className="flex" style={{alignItems: "center"}}>
-                    <div style={{minWidth: "75px"}}>
-                        <div className="small_route_button" style={{border: `1.5px solid ${["#008cce","#71be46","#ff8200","#7d4296","#ff8200"][route_type]}`, fontSize: "0.9em", marginTop: "15px"}}>
+                <div className="flex" style={{marginTop: "15px", marginBottom: "10px", alignItems: "center"}}>
+                    <div className="flex" style={{minWidth: "75px", alignItems: "center"}}>
+                        <div className="small_route_button" style={{border: `1.5px solid ${["#008cce","#71be46","#ff8200","#7d4296","#ff8200"][route_type]}`, fontSize: "0.9em"}}>
                             {(route_number ? route_number : route_name)}
                         </div>
                     </div>

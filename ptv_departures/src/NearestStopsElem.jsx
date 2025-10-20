@@ -15,7 +15,7 @@ function StopItem({selectedStop, setSelectedStop, stop}) {
                             stop.routes.map(route => {
                                 const colour=["#008cce","#71be46","#ff8200","#7d4296","#ff8200"];
                                 return (
-                                    <span key={[stop.stop_id.toString(), route.route_name.toString()].toString()} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`}}>
+                                    <span key={[stop.stop_id.toString(), route.route_name.toString()].toString()} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`, marginBottom: "5px"}}>
                                         {(route.route_number ? route.route_number : route.route_name)}
                                     </span>
                                 );
