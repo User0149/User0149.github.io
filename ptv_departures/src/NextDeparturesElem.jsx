@@ -127,7 +127,7 @@ export default function NextDeparturesElem({selectedStop, setDisruptionIDs, setD
     }, [selectedStop, getDepartures]);
 
     return (
-        <div className="border-right height100" style={{width: (((window.innerWidth <= 800) && ( window.innerHeight <= 600 )) ? "35%" : "25%")}}>
+        <div className="border-right height100" style={{width: "30%"}}>
             <div className="position-relative background-grey font-x-large text-align-center padding-15px font-large">
                 <div>Next Departures</div>
                 <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={getDepartures}>
