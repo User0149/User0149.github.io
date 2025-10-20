@@ -72,7 +72,7 @@ function App() {
             <div className="flex" style={{height: "calc(100vh - 30px)"}}>
                 <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} getLocationAndStops={getLocationAndStops} stopsList={stopsList} devID={devID} devKey={devKey}/>
                 <NextDeparturesElem selectedStop={selectedStop} setShowDisruptions={setShowDisruptions} setDisruptionIDs={setDisruptionIDs} setDisruptions={setDisruptions}/>
-                <MapElem pos={pos} selectedStop={selectedStop} setSelectedStop={setSelectedStop} stopsList={stopsList}/>
+                {/* <MapElem pos={pos} selectedStop={selectedStop} setSelectedStop={setSelectedStop} stopsList={stopsList}/> */}
             </div>
 
             <Disruption disruptionIDs={disruptionIDs} disruptions={disruptions} showDisruptions={showDisruptions} setShowDisruptions={setShowDisruptions}/>
