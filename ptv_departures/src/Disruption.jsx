@@ -7,7 +7,7 @@ export default function Disruption({disruptionIDs, disruptions, showDisruptions,
                 setShowDisruptions(false);
             }
         }}>
-            <div className="modal_box padding15px">
+            <div className="modal_box padding-15px">
                 <span className="modal_close_button clickable" onClick={() => {setShowDisruptions(false)}}>&times;</span>
                 {
                     disruptionIDs.map(id => 

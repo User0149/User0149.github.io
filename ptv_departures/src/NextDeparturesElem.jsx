@@ -128,7 +128,7 @@ export default function NextDeparturesElem({selectedStop, setDisruptionIDs, setD
 
     return (
         <div className="border-right width25 height100">
-            <div className="position-relative background-grey font-x-large text-align-center padding15px font-large">
+            <div className="position-relative background-grey font-x-large text-align-center padding-15px font-large">
                 <div>Next Departures</div>
                 <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={getDepartures}>
                     <img alt="update" src="img/refresh.svg" width="20px" height="20px"></img>
