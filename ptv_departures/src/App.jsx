@@ -54,7 +54,6 @@ function App() {
         });
 
         const [lat, long] = [Math.round(cur_pos.coords.latitude*1e6)/1e6, Math.round(cur_pos.coords.longitude*1e6)/1e6];
-        // const [lat, long] = [-37.8177, 144.9614];
 
         setRealPos([lat, long]);
         if (useMapPos === 0) {

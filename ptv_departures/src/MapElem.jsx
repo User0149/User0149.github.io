@@ -66,7 +66,7 @@ export default function MapElem({realPos, pos, setPos, selectedStop, setSelected
                     })
                 }
             </MapContainer>
-            <img alt="dot" src="img/crosshair.svg" width="20px" height="20px" className="position-absolute z-index-1k" style={{left: "50%", top: "calc(50% + 15px)", marginTop: "-10px", marginLeft: "-10px"}}/>
+            <img alt="dot" src="img/crosshair.svg" width="20px" height="20px" className="position-absolute z-index-1k" style={{left: "50%", top: "calc(50% + 15px)", marginTop: "-10px", marginLeft: "-10px", pointerEvents: "none"}}/>
             <div className="position-absolute z-index-1k white-text text-align-center" style={{right: "0px", bottom: "0px"}}>
                 <div className="set_location_button border-bottom" onClick={() => {
                     setPos([map.getCenter().lat, map.getCenter().lng]);
