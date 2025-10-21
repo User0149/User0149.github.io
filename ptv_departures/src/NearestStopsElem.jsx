@@ -1,6 +1,6 @@
 function StopItem({selectedStop, setSelectedStop, stop}) {
     return (
-        <div id={`${stop.route_type},${stop.stop_id}`} className="width100 stop_box flex" key={[stop.stop_id.toString(),stop.route_type.toString()].toString()} style={((stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type)? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
+        <div id={`${stop.route_type},${stop.stop_id}`} className="width100 stop_box flex" style={((stop.stop_id === selectedStop.stop_id && stop.route_type === selectedStop.route_type)? {backgroundColor: "#d5d5d5"} : {})} onClick={() => setSelectedStop(stop)}>
             <img src={`img/route_type_${stop.route_type.toString()}.svg`} alt={`img/route_type_${stop.route_type.toString()}.svg`} width="40px" style={{padding: "15px"}}/>
 
             <div className="width100 height100" style={{fontSize: "0.9em"}}>
@@ -15,7 +15,7 @@ function StopItem({selectedStop, setSelectedStop, stop}) {
                             stop.routes.map(route => {
                                 const colour=["#008cce","#71be46","#ff8200","#7d4296","#ff8200"];
                                 return (
-                                    <span key={[stop.stop_id.toString(), route.route_name.toString()].toString()} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`, marginBottom: "5px"}}>
+                                    <span key={stop.stop_id.toString() + "," + route.route_id.toString() + "," + stop.route_type.toString() + "," + route.route_type.toString()} className="small_route_button" style={{border: `1.5px solid ${colour[route.route_type]}`, marginBottom: "5px"}}>
                                         {(route.route_number ? route.route_number : route.route_name)}
                                     </span>
                                 );

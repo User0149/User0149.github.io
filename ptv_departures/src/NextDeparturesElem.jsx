@@ -1,5 +1,5 @@
 import APIQuery from './api.js'
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useState, useRef} from 'react';
 
 async function NextDepartures(selectedStop) {
     if (selectedStop == null) return {};
@@ -11,7 +11,7 @@ async function NextDepartures(selectedStop) {
     return response;
 }
 
-function DepartureItem({selectedStop, departure, destination, setDisruptionIDs, setShowDisruptions}) {
+function DepartureItem({selectedStop, departure, run, selectedRun, setSelectedRun, setDisruptionIDs, setShowDisruptions}) {
     const scheduled_departure_utc = new Date(departure.scheduled_departure_utc);
     const estimated_departure_utc = (departure.estimated_departure_utc ? new Date(departure.estimated_departure_utc) : null);
 
@@ -33,14 +33,14 @@ function DepartureItem({selectedStop, departure, destination, setDisruptionIDs, 
     const estimated_string = (estimated_departure_utc ? (estimated_departure_utc.getTime() === scheduled_departure_utc.getTime() ? scheduled_string : estimated_departure_utc.toLocaleTimeString("fr-FR")) : scheduled_string);
 
     return (
-        <div className="width100 departure_box flex">
+        <div className="width100 departure_box flex" style={((run.run_ref === selectedRun.run_ref && run.route_type === selectedRun.route_type)? {backgroundColor: "#d5d5d5"} : {})} onClick={() => {setSelectedRun(run)}}>
             <div style={{width: "calc(100% - 100px)", marginLeft: "10px"}}>
                 <div className="flex">
                     <div className="margin-top-10px" style={{minWidth: "75px", paddingRight: "15px"}}>
                         {scheduled_string_extended}
                     </div>
                     <div className="margin-top-10px">
-                        to {destination}
+                        to {run.destination_name}
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@ function DepartureItem({selectedStop, departure, destination, setDisruptionIDs, 
     );
 }
 
-function DeparturesListElem({selectedStop, departures, setDisruptionIDs, setShowDisruptions}) {
+function DeparturesListElem({selectedStop, departures, selectedRun, setSelectedRun, setDisruptionIDs, setShowDisruptions}) {
     if (!selectedStop || !departures.departures || !departures.runs) {
         return (
             <></>
@@ -94,13 +94,12 @@ function DeparturesListElem({selectedStop, departures, setDisruptionIDs, setShow
     }
 
     const runs = departures.runs;
-
     return (
         <div className="overflow" style={{height: "calc(100% - 54px)"}}>
             {
                 departures.departures.map(departure => {
                     return (
-                        <DepartureItem key={departure.run_ref.toString() +","+ selectedStop.stop_id.toString()+","+departure.scheduled_departure_utc} selectedStop={selectedStop} departure={departure} destination={runs[departure.run_ref].destination_name} setDisruptionIDs={setDisruptionIDs} setShowDisruptions={setShowDisruptions}/>
+                        <DepartureItem key={departure.run_ref.toString() +","+ selectedStop.stop_id.toString()+","+departure.scheduled_departure_utc} selectedStop={selectedStop} selectedRun={selectedRun} setSelectedRun={setSelectedRun} departure={departure} run={runs[departure.run_ref]} setDisruptionIDs={setDisruptionIDs} setShowDisruptions={setShowDisruptions}/>
                     );
                 })
             }
@@ -108,8 +107,15 @@ function DeparturesListElem({selectedStop, departures, setDisruptionIDs, setShow
     );
 }
 
-export default function NextDeparturesElem({selectedStop, setDisruptionIDs, setDisruptions, setShowDisruptions}) {
+export default function NextDeparturesElem({selectedStop, selectedRun, setSelectedRun, setDisruptionIDs, setDisruptions, setShowDisruptions}) {
     const [departures, setDepartures] = useState({});
+
+    const selectedRunRef = useRef(selectedRun);
+
+    useEffect(() => {
+        selectedRunRef.current = selectedRun;
+    }, [selectedRun]);
+
 
     const getDepartures = useCallback(async () => {
         const response = await NextDepartures(selectedStop);
@@ -117,25 +123,42 @@ export default function NextDeparturesElem({selectedStop, setDisruptionIDs, setD
             setDepartures(response);
             setDisruptions(response.disruptions);
         }
-    }, [selectedStop, setDisruptions]);
+        return response;
+    }, [setDisruptions, selectedStop]);
+
+    const getSelectedRun = useCallback(async (response) => {
+        if (response.departures && response.departures.length >= 1) {
+            const runs = response.runs;
+            if (!selectedRunRef.current || !runs[selectedRunRef.current.run_ref]) {
+                setSelectedRun(runs[response.departures[0].run_ref]);
+            }
+            else {
+                setSelectedRun(runs[selectedRunRef.current.run_ref]);
+            }
+        }
+    }, [setSelectedRun]);
+
+    const getDeparturesAndSelectedRun = useCallback(async () => {
+        getSelectedRun(await getDepartures());
+    }, [getSelectedRun, getDepartures]);
 
     useEffect(() => {
-        getDepartures();
-        const interval = setInterval(getDepartures, 15000);
+        getDeparturesAndSelectedRun();
+        const interval = setInterval(getDeparturesAndSelectedRun, 15000);
 
         return () => clearInterval(interval);
-    }, [selectedStop, getDepartures]);
+    }, [getDeparturesAndSelectedRun]);
 
     return (
         <div className="border-right height100" style={{width: "30%"}}>
             <div className="position-relative background-grey font-x-large text-align-center padding-15px font-large">
                 <div>Next Departures</div>
-                <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={getDepartures}>
+                <div id="refresh_icon_box" className="rounded_h flex-center position-absolute" style={{height: "35px", width: "35px", right: "0px", bottom: "0px"}} onClick={getDeparturesAndSelectedRun}>
                     <img alt="update" src="img/refresh.svg" width="20px" height="20px"></img>
                 </div>
             </div>
             
-            <DeparturesListElem selectedStop={selectedStop} departures={departures} setShowDisruptions={setShowDisruptions} setDisruptionIDs={setDisruptionIDs}/>
+            <DeparturesListElem selectedStop={selectedStop} departures={departures} selectedRun={selectedRun} setSelectedRun={setSelectedRun} setShowDisruptions={setShowDisruptions} setDisruptionIDs={setDisruptionIDs}/>
         </div>
     );
 }

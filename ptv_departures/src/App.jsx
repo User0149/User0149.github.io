@@ -27,6 +27,8 @@ function App() {
     const [disruptions, setDisruptions] = useState({});
     const [showDisruptions, setShowDisruptions] = useState(false);
 
+    const [selectedRun, setSelectedRun] = useState(null);
+
     if (devID == null) {
         localStorage.setItem("dev_id", "");
         setDevID("");
@@ -79,8 +81,8 @@ function App() {
             <TopBar devID={devID} devKey={devKey} setDevID={setDevID} setDevKey={setDevKey}/>
             <div className="flex" style={{height: "calc(100vh - 30px)"}}>
                 <NearestStopsElem selectedStop={selectedStop} setSelectedStop={setSelectedStop} getLocationAndStops={getLocationAndStops} stopsList={stopsList} devID={devID} devKey={devKey}/>
-                <NextDeparturesElem selectedStop={selectedStop} setShowDisruptions={setShowDisruptions} setDisruptionIDs={setDisruptionIDs} setDisruptions={setDisruptions}/>
-                <MapElem realPos={realPos} pos={pos} setPos={setPos} selectedStop={selectedStop} setSelectedStop={setSelectedStop} stopsList={stopsList} useMapPos={useMapPos} setUseMapPos={setUseMapPos}/>
+                <NextDeparturesElem selectedStop={selectedStop} selectedRun={selectedRun} setSelectedRun={setSelectedRun} setShowDisruptions={setShowDisruptions} setDisruptionIDs={setDisruptionIDs} setDisruptions={setDisruptions}/>
+                <MapElem realPos={realPos} pos={pos} setPos={setPos} selectedRun={selectedRun} selectedStop={selectedStop} setSelectedStop={setSelectedStop} stopsList={stopsList} useMapPos={useMapPos} setUseMapPos={setUseMapPos}/>
             </div>
 
             <Disruption disruptionIDs={disruptionIDs} disruptions={disruptions} showDisruptions={showDisruptions} setShowDisruptions={setShowDisruptions}/>

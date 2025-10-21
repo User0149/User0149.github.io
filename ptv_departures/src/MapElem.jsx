@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {MapContainer, TileLayer, Marker, Circle, Tooltip} from 'react-leaflet'
 import {iconRoute, iconRed} from './Markers.js'
 
-export default function MapElem({realPos, pos, setPos, selectedStop, setSelectedStop, stopsList, useMapPos, setUseMapPos}) {
+export default function MapElem({realPos, pos, setPos, selectedRun, selectedStop, setSelectedStop, stopsList, useMapPos, setUseMapPos}) {
     const [map, setMap] = useState(null);
 
     useEffect(() => {
@@ -58,10 +58,16 @@ export default function MapElem({realPos, pos, setPos, selectedStop, setSelected
                         );
                     })
                 }
+                {
+                    (selectedRun && selectedRun.vehicle_position && <Marker position={[selectedRun.vehicle_position.latitude, selectedRun.vehicle_position.longitude]} icon={iconRoute(selectedRun.route_type, 40)}>
+                        <Tooltip>Vehicle position</Tooltip>
+                    </Marker>)
+                }
             </MapContainer>
+
             <img alt="dot" src="img/crosshair.svg" width="20px" height="20px" className="position-absolute z-index-1k" style={{left: "50%", top: "calc(50% + 15px)", marginTop: "-10px", marginLeft: "-10px", pointerEvents: "none"}}/>
             <div className="position-absolute z-index-1k white-text text-align-center" style={{right: "0px", bottom: "0px"}}>
-                <div className="set_location_button border-bottom" onClick={() => {
+                <div className="set_location_button" onClick={() => {
                     setPos([map.getCenter().lat, map.getCenter().lng]);
                     setUseMapPos(useMapPos + 1);
                 }}>
@@ -73,6 +79,15 @@ export default function MapElem({realPos, pos, setPos, selectedStop, setSelected
                 }}>
                     Go to current location
                 </div>
+                {
+                    (selectedRun && selectedRun.vehicle_position && 
+                        <div className="set_location_button" onClick={() => {
+                            map.setView([selectedRun.vehicle_position.latitude, selectedRun.vehicle_position.longitude], 14);
+                        }}>
+                            Go to vehicle position
+                        </div>
+                    )
+                }
             </div>
         </div>
 
