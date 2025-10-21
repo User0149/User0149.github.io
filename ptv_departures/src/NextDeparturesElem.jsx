@@ -33,7 +33,11 @@ function DepartureItem({selectedStop, departure, run, selectedRun, setSelectedRu
     const estimated_string = (estimated_departure_utc ? (estimated_departure_utc.getTime() === scheduled_departure_utc.getTime() ? scheduled_string : estimated_departure_utc.toLocaleTimeString("fr-FR")) : scheduled_string);
 
     return (
-        <div className="width100 departure_box flex" style={((run.run_ref === selectedRun.run_ref && run.route_type === selectedRun.route_type)? {backgroundColor: "#d5d5d5"} : {})} onClick={() => {setSelectedRun(run)}}>
+        <div className="width100 departure_box flex" style={((run.run_ref === selectedRun.run_ref && run.route_type === selectedRun.route_type && departure.scheduled_departure_utc === selectedRun.scheduled_departure_utc) ? {backgroundColor: "#d5d5d5"} : {})} onClick={() => {
+            let newSelectedRun = run;
+            newSelectedRun["scheduled_departure_utc"] = departure.scheduled_departure_utc;
+            setSelectedRun(newSelectedRun);
+        }}>
             <div style={{width: "calc(100% - 100px)", marginLeft: "10px"}}>
                 <div className="flex">
                     <div className="margin-top-10px" style={{minWidth: "75px", paddingRight: "15px"}}>
@@ -130,10 +134,15 @@ export default function NextDeparturesElem({selectedStop, selectedRun, setSelect
         if (response.departures && response.departures.length >= 1) {
             const runs = response.runs;
             if (!selectedRunRef.current || !runs[selectedRunRef.current.run_ref]) {
-                setSelectedRun(runs[response.departures[0].run_ref]);
+                const newSelectedRun = runs[response.departures[0].run_ref];
+                newSelectedRun["scheduled_departure_utc"] = response.departures[0].scheduled_departure_utc;
+                setSelectedRun(newSelectedRun);
             }
             else {
-                setSelectedRun(runs[selectedRunRef.current.run_ref]);
+                const selectedDepartureTime = selectedRunRef.current.scheduled_departure_utc;
+                let newSelectedRun = runs[selectedRunRef.current.run_ref];
+                newSelectedRun["scheduled_departure_utc"] = selectedDepartureTime;
+                setSelectedRun(newSelectedRun);
             }
         }
     }, [setSelectedRun]);

@@ -1,5 +1,5 @@
 import './style.css';
-import {useEffect, useState, useCallback} from 'react';
+import {useEffect, useState, useCallback, useRef} from 'react';
 
 import NearestStopsElem from './NearestStopsElem.jsx'
 import NextDeparturesElem from './NextDeparturesElem.jsx'
@@ -29,6 +29,12 @@ function App() {
 
     const [selectedRun, setSelectedRun] = useState(null);
 
+    const posRef = useRef(pos);
+
+    useEffect(() => {
+        posRef.current = pos;
+    }, [pos]);
+
     if (devID == null) {
         localStorage.setItem("dev_id", "");
         setDevID("");
@@ -40,8 +46,9 @@ function App() {
 
     const getStops = useCallback(async (lat, long) => {
         let API_ret = await NearestStops(lat, long);
-        if (!API_ret) {
+        if (!API_ret || !API_ret.stops) {
             console.log("Something went wrong.");
+            return;
         }
  
         setStopsList(API_ret.stops);
@@ -62,7 +69,7 @@ function App() {
             setPos([lat, long]);
             return [lat, long];
         }
-        return pos;
+        return posRef.current;
     }, [useMapPos]);
 
     const getLocationAndStops = useCallback(async () => {
