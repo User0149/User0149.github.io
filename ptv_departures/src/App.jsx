@@ -81,7 +81,7 @@ function App() {
         getLocationAndStops();
         const interval = setInterval(getLocationAndStops, 15000);
         return () => clearInterval(interval);
-    }, [getLocationAndStops]);
+    }, [getLocationAndStops, devID, devKey]);
 
     return (
         <>

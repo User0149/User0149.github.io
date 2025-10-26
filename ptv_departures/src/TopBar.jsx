@@ -21,9 +21,9 @@ export default function TopBar({devID, devKey, setDevID, setDevKey}) {
                 </div>
                 <div id="settings_elem" className="z-index-1k black-background padding-15px">
                     <div>Developer ID</div>
-                    <input id="dev_id_input" type="text" value={devID} onInput={() => {localStorage.setItem("dev_id", document.getElementById("dev_id_input").value); setDevID(localStorage.getItem("dev_id"))}}></input>
+                    <input id="dev_id_input" type="text" value={devID} onInput={() => {localStorage.setItem("dev_id", document.getElementById("dev_id_input").value); setDevID(localStorage.getItem("dev_id"))}} style={{width: "162px"}}></input>
                     <div>Developer key</div>
-                    <input id="dev_key_input" type="text" value={devKey} onInput={() => {localStorage.setItem("dev_key", document.getElementById("dev_key_input").value); setDevKey(localStorage.getItem("dev_key"))}}></input>
+                    <input id="dev_key_input" type="text" value={devKey} onInput={() => {localStorage.setItem("dev_key", document.getElementById("dev_key_input").value); setDevKey(localStorage.getItem("dev_key"))}} style={{width: "162px"}}></input>
                 </div>
             </div>
         </>
