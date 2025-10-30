@@ -43,7 +43,7 @@ sites.forEach(i => {
     document.getElementById("site"+i+"_link").value=localStorage.getItem("site_link"+i);
 });
 
-//
+
 var refresh_buttons;
 
 refresh_buttons=function refresh_buttons(){
@@ -54,10 +54,10 @@ refresh_buttons=function refresh_buttons(){
         else if(localStorage.getItem(i+"_on")=="true"){
             document.getElementById("button"+i).style.display="initial";
         }
-        //
+        
         document.getElementById("button"+i).innerHTML=localStorage.getItem("site_name"+i);
         document.getElementById("site"+i+"_show_text").innerHTML=localStorage.getItem("site_name"+i);
-        //
+        
         if(localStorage.getItem("embed/link"+i)=="embed"){
             document.getElementById("site"+i).src=localStorage.getItem("site_link"+i);
             document.getElementById("button"+i).onclick=function onclick(event){toggle('site'+i);};
