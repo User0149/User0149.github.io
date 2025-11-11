@@ -1,11 +1,11 @@
 import './style.css';
 import {useEffect, useState, useCallback, useRef} from 'react';
 
-import NearestStopsElem from './NearestStopsElem.jsx'
-import NextDeparturesElem from './NextDeparturesElem.jsx'
+import NearestStopsElem from './NearestStopsElem.jsx';
+import NextDeparturesElem from './NextDeparturesElem.jsx';
 import MapElem from './MapElem.jsx';
 import TopBar from './TopBar.jsx';
-import APIQuery from './api.js'
+import APIQuery from './api.js';
 import Disruption from './Disruption.jsx';
 
 async function NearestStops(lat, long) {
