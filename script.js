@@ -2,11 +2,11 @@ const sites = ["ptv_departures", "dashboard", "notepad", "colour_picker", "refra
 const sitesDiv = document.getElementById("sites_div");
 
 for (const site of sites) {
-    let div = sitesDiv.createElement('div');
+    const div = document.createElement('div');
 
-    let link = sitesDiv.createElement('a');
-    link.href = `https://user0149.github.io/${site.path}`;
-    link.innerText = `https://user0149.github.io/${site.path}`;
+    const link = document.createElement('a');
+    link.href = `./${site}`;
+    link.innerText = `https://user0149.github.io/${site}`;
 
     div.appendChild(link);
     sitesDiv.appendChild(div);
