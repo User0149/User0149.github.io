@@ -1,4 +1,4 @@
-const sites = ["ptv_departures", "dashboard", "notepad", "colour_picker", "refraction_simulator"];
+const sites = ["ptv-departures", "dashboard", "notepad", "colour-picker", "refraction-simulator"];
 const sitesDiv = document.getElementById("sites_div");
 
 for (const site of sites) {
