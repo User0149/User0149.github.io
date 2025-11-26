@@ -1,4 +1,4 @@
-const sites = ["PTV-Departures", "Dashboard", "Notepad", "Colour-Picker", "Refraction-Simulator"];
+const sites = ["PTV-Departures", "Shopping-List", "Dashboard", "Notepad", "Colour-Picker", "Refraction-Simulator"];
 const sitesDiv = document.getElementById("sites_div");
 
 for (const site of sites) {
