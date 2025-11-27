@@ -1,0 +1,12 @@
+[
+    {
+        "name": "PTV Departures",
+        "description": "A public transport app for the state of Victoria, Australia that allows you to view realtime data for public transport departures.",
+        "image": "profile_photo.svg"
+    },
+    {
+        "name": "Shopping List",
+        "description": "Keep a list of common items that you buy and compare prices across different stores.",
+        "image": "profile_photo.svg"
+    }
+]
