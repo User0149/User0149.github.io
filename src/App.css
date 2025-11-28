@@ -35,3 +35,34 @@
     animation-name: jumpUpDown;
     animation-duration: 0.7s;
 }
+
+@keyframes popOutIn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.051);
+        box-shadow: 0 0 10px 5px #ffdd00;
+    }
+    100% {transform: scale(1);}
+}
+
+.pop-out-in {
+    animation-name: popOutIn;
+    animation-duration: 0.75s;
+    transform-origin: 50% 50%;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 10px 5px #ffdd00;
+}
+.glow-on-hover {
+    transition-duration: 0.2s;
+}
+
+.pop-on-hover:hover {
+    transform: scale(1.051);
+}
+.pop-on-hover {
+    transition-duration: 0.2s;
+}

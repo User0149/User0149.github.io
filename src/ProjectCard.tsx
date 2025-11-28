@@ -2,7 +2,7 @@ import type { projectType } from "./types";
 
 export default function ProjectCard({project}: {project: projectType}) {
     return (
-        <div className="project-card space-y-3">
+        <div className="project-card space-y-3 pop-on-hover">
             <img src={"./assets/"+project.image} className="w-full"/>
             <div className="content-container-small space-y-3">
                 <h3><a className="text-xl underline" href={project.href}>{project.name}</a></h3>
