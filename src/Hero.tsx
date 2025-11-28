@@ -14,6 +14,10 @@ export default function Hero() {
                         </a>
                     </div>
                 </div>
+
+                <a href="#projects" className="opacity-50 hover:opacity-100">
+                    <img src="./assets/double-down-arrow.svg" width="50" className="absolute bottom-10 left-1/2"/>
+                </a>
             </div>
         </section>
     );
