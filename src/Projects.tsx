@@ -6,7 +6,7 @@ export default function Projects() {
     const [searchTerm, setSearchTerm] = useState("");
 
     return (
-        <section>
+        <section id="projects">
             <div className="content-container space-y-5">
                 <div  className="space-y-5">
                     <h2 className="text-center text-4xl">My Projects</h2>

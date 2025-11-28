@@ -8,7 +8,7 @@ export default function Hero() {
                         <h1 className="text-center text-7xl">Welcome to my</h1>
                         <h1 className="text-center text-7xl">GitHub!</h1>
                     </div>
-                    <div className="mx-auto text-center text-3xl border w-60 p-3 rounded-full cursor-pointer">View projects</div>
+                    <div className="mx-auto text-center text-3xl border w-60 p-3 rounded-full cursor-pointer"><a href="#projects">View projects</a></div>
                 </div>
             </div>
         </section>
