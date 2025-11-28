@@ -37,7 +37,7 @@
     },
     {
         "name": "Share Files",
-        "href": "./Share-Files",
+        "href": "https://github.com/User0149/Share-Files",
         "image": "share-files.png",
         "description": "A very simple version of Pastebin, created as an Express.js learning project."
     }
