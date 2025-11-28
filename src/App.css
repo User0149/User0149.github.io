@@ -41,7 +41,7 @@
         transform: scale(1);
     }
     50% {
-        transform: scale(1.051);
+        transform: scale(1.05);
         box-shadow: 0 0 10px 5px #ffdd00;
     }
     100% {transform: scale(1);}
@@ -61,7 +61,7 @@
 }
 
 .pop-on-hover:hover {
-    transform: scale(1.051);
+    transform: scale(1.05);
 }
 .pop-on-hover {
     transition-duration: 0.2s;
