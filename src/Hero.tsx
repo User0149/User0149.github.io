@@ -8,7 +8,11 @@ export default function Hero() {
                         <h1 className="text-center text-7xl jump-up-down">Welcome to my</h1>
                         <h1 className="text-center text-7xl jump-up-down" style={{animationDelay: "300ms"}}>GitHub!</h1>
                     </div>
-                    <div className="mx-auto text-center text-3xl border w-60 p-3 rounded-full cursor-pointer pop-out-in bg-[#f2f2f2] pop-on-hover glow-on-hover" style={{animationDelay: "500ms"}}><a href="#projects">View projects</a></div>
+                    <div>
+                        <a href="#projects">
+                            <div className="mx-auto text-center text-3xl border w-60 p-3 rounded-full cursor-pointer pop-out-in bg-[#f2f2f2] pop-on-hover glow-on-hover" style={{animationDelay: "500ms"}}>View projects</div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
