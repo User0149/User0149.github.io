@@ -14,3 +14,24 @@
     overflow: hidden;
     padding-bottom: 20px;
 }
+
+@keyframes bgSlideIn {
+    from {background-position: -30% 0;}
+    to {background-position: 0 0;}
+}
+.bg-slide-in {
+    animation-name: bgSlideIn;
+    animation-duration: 1s;
+}
+
+@keyframes jumpUpDown {
+    0% {top: 0;}
+    50% {top: -10px;}
+    100% {top: 0px;}
+}
+
+.jump-up-down {
+    position: relative;
+    animation-name: jumpUpDown;
+    animation-duration: 0.7s;
+}
