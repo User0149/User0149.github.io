@@ -7,7 +7,7 @@ export default function Projects() {
 
     return (
         <section>
-            <div className="content-container space-y-10">
+            <div className="content-container space-y-5">
                 <div  className="space-y-5">
                     <h2 className="text-center text-4xl">My Projects</h2>
                     <div>
