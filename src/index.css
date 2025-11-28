@@ -12,6 +12,9 @@ html, body, #root {
     width: 100%;
     margin: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
 html::-webkit-scrollbar {
     display: none;
 }
