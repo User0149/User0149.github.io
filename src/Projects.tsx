@@ -6,12 +6,15 @@ export default function Projects() {
     const [searchTerm, setSearchTerm] = useState("");
 
     return (
-        <section className="pb-10">
-            <div className="content-container">
-                <h2 className="pt-10 text-center text-4xl">My Projects</h2>
-                <div className="mt-5">Below is a selection of some projects that I have made.<br/>More to come soon!</div>
-
-                <br/>
+        <section>
+            <div className="content-container space-y-10">
+                <div  className="space-y-5">
+                    <h2 className="text-center text-4xl">My Projects</h2>
+                    <div>
+                        <div>Below is a selection of some projects that I have made.</div>
+                        <div>More to come soon!</div>
+                    </div>
+                </div>
 
                 <SearchBar setSearchTerm={setSearchTerm} />
                 <ProjectList searchTerm={searchTerm} />

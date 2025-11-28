@@ -1,12 +1,38 @@
 [
     {
         "name": "PTV Departures",
-        "description": "A public transport app for the state of Victoria, Australia that allows you to view realtime data for public transport departures.",
-        "image": "profile_photo.svg"
+        "href": "./PTV-Departures",
+        "image": "ptv-departures.png",
+        "description": "A public transport app for the state of Victoria, Australia that allows you to view realtime data for public transport departures."
     },
     {
         "name": "Shopping List",
-        "description": "Keep a list of common items that you buy and compare prices across different stores.",
-        "image": "profile_photo.svg"
+        "href": "./Shopping-List",
+        "image": "shopping-list.png",
+        "description": "Keep a list of common items that you buy and compare prices across different stores."
+    },
+    {
+        "name": "Dashboard",
+        "href": "./Dashboard",
+        "image": "dashboard.png",
+        "description": "A personal browser dashboard with animations and customisable links to websites."
+    },
+    {
+        "name": "Notepad",
+        "href": "./Notepad",
+        "image": "notepad.png",
+        "description": "A real-time text editor that supports LaTeX and HTML."
+    },
+    {
+        "name": "Colour Picker",
+        "href": "./Colour-Picker",
+        "image": "colour-picker.png",
+        "description": "A colour picker tool that allows you to gradually modify a colour by stepping towards other colours."
+    },
+    {
+        "name": "Refraction Simulator",
+        "href": "./Refraction-Simulator",
+        "image": "refraction-simulator.png",
+        "description": "A virtual demonstration of refraction and Snell's law."
     }
 ]
