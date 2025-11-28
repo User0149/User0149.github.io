@@ -34,5 +34,11 @@
         "href": "./Refraction-Simulator",
         "image": "refraction-simulator.png",
         "description": "A virtual demonstration of refraction and Snell's law."
+    },
+    {
+        "name": "Share Files",
+        "href": "./Share-Files",
+        "image": "share-files.png",
+        "description": "A very simple version of Pastebin, created as an Express.js learning project."
     }
 ]
