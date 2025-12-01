@@ -1,24 +1,26 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import ProjectList from "./ProjectList";
+import MainContentContainer from "./MainContentContainer";
+import SpaceY from "./SpaceY";
 
 export default function Projects() {
     const [searchTerm, setSearchTerm] = useState("");
 
     return (
         <section id="projects">
-            <div className="content-container space-y-5">
-                <div  className="space-y-5">
+            <MainContentContainer>
+                <SpaceY spacing={5}>
                     <h2 className="text-center text-4xl">My Projects</h2>
                     <div>
                         <div>Below is a selection of some projects that I have made.</div>
                         <div>More to come soon!</div>
                     </div>
-                </div>
 
-                <SearchBar setSearchTerm={setSearchTerm} />
-                <ProjectList searchTerm={searchTerm} />
-            </div>
+                    <SearchBar setSearchTerm={setSearchTerm} />
+                    <ProjectList searchTerm={searchTerm} />
+                </SpaceY>
+            </MainContentContainer>
         </section>
     );
 }

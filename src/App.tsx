@@ -1,7 +1,7 @@
-import Hero from "./Hero";
-import Projects from "./Projects";
-import Footer from "./Footer";
-import "./App.css";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Footer from "./components/Footer";
+import "./styles/animations.css";
 
 function App() {
     return (

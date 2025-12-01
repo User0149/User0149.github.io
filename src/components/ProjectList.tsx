@@ -1,7 +1,11 @@
-import projects from "./assets/projectList.json";
+import projects from "../assets/projectList.json";
 import ProjectCard from "./ProjectCard";
 
-export default function ProjectList({searchTerm}: {searchTerm: string}) {
+interface ProjectListProps {
+    searchTerm: string;
+}
+
+export default function ProjectList({ searchTerm }: ProjectListProps) {
     return (
         <div className="grid grid-cols-3 gap-5">
             {
