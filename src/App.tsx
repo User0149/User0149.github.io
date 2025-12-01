@@ -2,14 +2,15 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import "./styles/animations.css";
+import SpaceY from "./components/SpaceY";
 
 function App() {
     return (
-        <div className="space-y-10">
+        <SpaceY spacing={10}>
             <Hero />
             <Projects />
             <Footer />
-        </div>
+        </SpaceY>
     )
 }
 
