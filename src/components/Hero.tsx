@@ -3,7 +3,7 @@ import SpaceY from "./SpaceY";
 
 export default function Hero() {
     return (
-        <section className="h-screen relative bg-[url('./assets/profile_photo.svg')] bg-no-repeat bg-slide-in">
+        <section className="h-screen relative bg-[url('./assets/profile-photo.svg')] bg-no-repeat bg-slide-in">
             <div className="h-full w-full absolute top-0 left-0 bg-[gray] opacity-10 z-0"></div>
             <ContentContainer>
                 <div className="relative z-1 pt-40">
