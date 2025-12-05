@@ -1,7 +1,7 @@
-import type { setState } from "../types/types";
+import type { StateSetter } from "../types/types";
 
 interface SearchBarProps {
-    setSearchTerm: setState<string>;
+    setSearchTerm: StateSetter<string>;
 }
 
 export default function SearchBar({ setSearchTerm }: SearchBarProps) {

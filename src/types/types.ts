@@ -1,3 +1,3 @@
-export type setState<T> = React.Dispatch<React.SetStateAction<T>>;
+export type StateSetter<T> = React.Dispatch<React.SetStateAction<T>>;
 
-export type projectType = {name: string, href: string, image: string, description: string};
+export type ProjectType = {name: string, href: string, image: string, description: string};

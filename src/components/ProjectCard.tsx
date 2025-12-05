@@ -1,8 +1,8 @@
-import type { projectType } from "../types/types";
+import type { ProjectType } from "../types/types";
 import SpaceY from "./SpaceY";
 
 interface ProjectCardProps {
-    project: projectType;
+    project: ProjectType;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
