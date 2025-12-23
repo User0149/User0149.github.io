@@ -6,6 +6,12 @@
         "description": "A public transport app for the state of Victoria, Australia that allows you to view realtime data for public transport departures."
     },
     {
+        "name": "Chess Engine",
+        "href": "./Chess Engine",
+        "image": "chess-engine.png",
+        "description": "A chess platform where you can play against my engine."
+    },
+    {
         "name": "Shopping List",
         "href": "./Shopping-List",
         "image": "shopping-list.png",
