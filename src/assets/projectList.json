@@ -7,7 +7,7 @@
     },
     {
         "name": "Chess Engine",
-        "href": "./Chess Engine",
+        "href": "./Chess-Engine",
         "image": "chess-engine.png",
         "description": "A chess platform where you can play against my engine."
     },
