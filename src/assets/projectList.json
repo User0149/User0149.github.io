@@ -30,6 +30,12 @@
         "description": "A real-time text editor that supports LaTeX and HTML."
     },
     {
+        "name": "Share Files",
+        "href": "https://github.com/User0149/Share-Files",
+        "image": "share-files.png",
+        "description": "A very simple version of Pastebin, created as an Express.js learning project."
+    },
+    {
         "name": "Colour Picker",
         "href": "./Colour-Picker",
         "image": "colour-picker.png",
@@ -40,11 +46,5 @@
         "href": "./Refraction-Simulator",
         "image": "refraction-simulator.png",
         "description": "A virtual demonstration of refraction and Snell's law."
-    },
-    {
-        "name": "Share Files",
-        "href": "https://github.com/User0149/Share-Files",
-        "image": "share-files.png",
-        "description": "A very simple version of Pastebin, created as an Express.js learning project."
     }
 ]
