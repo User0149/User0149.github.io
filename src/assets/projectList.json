@@ -18,6 +18,12 @@
         "description": "Keep a list of common items that you buy and compare prices across different stores."
     },
     {
+        "name": "Competitive Programming Leaderboard Bot",
+        "href": "https://github.com/User0149/Competitive-Programming-Leaderboard-Bot",
+        "image": "cp-leaderboard-bot.png",
+        "description": "A Discord leaderboard bot for competitive programming contests."
+    },
+    {
         "name": "Dashboard",
         "href": "./Dashboard",
         "image": "dashboard.png",
