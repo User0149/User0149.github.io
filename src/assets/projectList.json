@@ -1,7 +1,7 @@
 [
     {
         "name": "PTV Departures",
-        "href": "https://github.com/User0149/PTV-Departures",
+        "href": "https://ptv-departures.onrender.com/",
         "image": "ptv-departures.png",
         "description": "A public transport app for the state of Victoria, Australia that allows you to view realtime data for public transport departures."
     },
