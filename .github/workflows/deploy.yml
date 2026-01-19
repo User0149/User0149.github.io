@@ -32,7 +32,8 @@ jobs:
         with:
           node-version: '24'
           cache: 'pnpm'
-
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
       - name: Install dependencies
         run: pnpm install
 
