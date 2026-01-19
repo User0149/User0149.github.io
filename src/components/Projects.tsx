@@ -1,8 +1,10 @@
 import { useState } from "react";
+
+import SpaceY from "./SpaceY";
+
 import SearchBar from "./SearchBar";
 import ProjectList from "./ProjectList";
 import MainContentContainer from "./MainContentContainer";
-import SpaceY from "./SpaceY";
 
 export default function Projects() {
     const [searchTerm, setSearchTerm] = useState("");

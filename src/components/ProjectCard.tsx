@@ -1,4 +1,5 @@
 import type { ProjectType } from "../types/types";
+
 import SpaceY from "./SpaceY";
 
 interface ProjectCardProps {

@@ -1,4 +1,5 @@
 import projects from "../assets/projectList.json";
+
 import ProjectCard from "./ProjectCard";
 
 interface ProjectListProps {
